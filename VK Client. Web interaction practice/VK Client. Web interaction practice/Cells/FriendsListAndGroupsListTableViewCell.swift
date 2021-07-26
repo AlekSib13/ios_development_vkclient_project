@@ -9,9 +9,6 @@ import UIKit
 
 class FriendsListAndGroupsListTableViewCell: UITableViewCell {
     
-    let session = Singleton.shared.session!
-
-    
     @IBOutlet weak var firstName: UILabel!
     
     @IBOutlet weak var lastName: UILabel!
@@ -30,16 +27,14 @@ class FriendsListAndGroupsListTableViewCell: UITableViewCell {
     }
     
     
-    
     func configureCell(firstName: String?, lastName: String?, avatar: UIImage?) {
         self.firstName.text = firstName ?? ""
         
         self.lastName.text = lastName ?? ""
-        
+    
         guard let avatarImage = avatar else {return}
         self.avatar.image = avatarImage
     }
-        
     
     
     

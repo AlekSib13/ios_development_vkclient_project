@@ -8,46 +8,45 @@
 
 /* Begin PBXBuildFile section */
 		8C34E9EB35C91CFCAC3ABE9A /* Pods_VK_Client__Web_interaction_practice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 509F00FDC6CF36AB82ED69FE /* Pods_VK_Client__Web_interaction_practice.framework */; };
+		EB18364C26A9B49E00CA9CB5 /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB18364B26A9B49E00CA9CB5 /* Manager.swift */; };
 		EB1EEC6B268C3CC40083477D /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1EEC6A268C3CC40083477D /* MainPageViewController.swift */; };
 		EB20C3CB269E9DD300A204E7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EB20C3CA269E9DD300A204E7 /* GoogleService-Info.plist */; };
 		EB2765A1268644BD00C060EC /* VKLoginPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2765A0268644BD00C060EC /* VKLoginPageViewController.swift */; };
+		EB280F5426A208F300AD0FD2 /* ServiceSaverReaderFireBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB280F5326A208F300AD0FD2 /* ServiceSaverReaderFireBase.swift */; };
 		EB692BFA268EE23E0070636D /* Groups.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB692BF9268EE23E0070636D /* Groups.swift */; };
-		EB693AE92694EB170002D374 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB693AE82694EB170002D374 /* User.swift */; };
 		EB932EBF2691971A00382D14 /* FriendsListAndGroupsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB932EBD2691971A00382D14 /* FriendsListAndGroupsListTableViewCell.swift */; };
 		EB932EC02691971A00382D14 /* FriendsListAndGroupsListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB932EBE2691971A00382D14 /* FriendsListAndGroupsListTableViewCell.xib */; };
-		EB9DB4F42694E61500CA4660 /* UserPhotos.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9DB4F32694E61500CA4660 /* UserPhotos.swift */; };
 		EBAE927E26962E3600F77130 /* FriendPhotos.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAE927D26962E3600F77130 /* FriendPhotos.swift */; };
 		EBAE928026962ECB00F77130 /* GroupPhotos.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAE927F26962ECB00F77130 /* GroupPhotos.swift */; };
-		EBB291902696C2E6009946E1 /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB2918F2696C2E6009946E1 /* Messages.swift */; };
 		EBC810D22680FF1A0021CDE6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC810D12680FF1A0021CDE6 /* AppDelegate.swift */; };
 		EBC810D42680FF1A0021CDE6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC810D32680FF1A0021CDE6 /* SceneDelegate.swift */; };
 		EBC810D92680FF1A0021CDE6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBC810D72680FF1A0021CDE6 /* Main.storyboard */; };
 		EBC810DB2680FF1E0021CDE6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBC810DA2680FF1E0021CDE6 /* Assets.xcassets */; };
 		EBC810DE2680FF1E0021CDE6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBC810DC2680FF1E0021CDE6 /* LaunchScreen.storyboard */; };
 		EBC810E7268101810021CDE6 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC810E6268101810021CDE6 /* Session.swift */; };
-		EBEABAD4268AEB610087BCA5 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEABAD3268AEB610087BCA5 /* DataService.swift */; };
+		EBE603CE26A7E6330065BDD5 /* Data+PrettyJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE603CD26A7E6330065BDD5 /* Data+PrettyJson.swift */; };
+		EBEABAD4268AEB610087BCA5 /* ServiceAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEABAD3268AEB610087BCA5 /* ServiceAPI.swift */; };
 		EBF007062693A0D9003A3B3B /* InitialCoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF007052693A0D9003A3B3B /* InitialCoverViewController.swift */; };
 		EBF0BF02269067D8000FA1E8 /* Friends.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF0BF01269067D8000FA1E8 /* Friends.swift */; };
 		EBF0BF052690909B000FA1E8 /* UserFriendsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF0BF042690909B000FA1E8 /* UserFriendsListViewController.swift */; };
 		EBF0BF07269090C1000FA1E8 /* UserGroupsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF0BF06269090C1000FA1E8 /* UserGroupsListViewController.swift */; };
-		EBF66761269757B3001D5511 /* SaverReaderDbService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF66760269757B3001D5511 /* SaverReaderDbService.swift */; };
+		EBF66761269757B3001D5511 /* ServiceSaverReaderDb.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF66760269757B3001D5511 /* ServiceSaverReaderDb.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		19A049B0BECDDD78EA4AC48D /* Pods-VK Client. Web interaction practice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VK Client. Web interaction practice.release.xcconfig"; path = "Target Support Files/Pods-VK Client. Web interaction practice/Pods-VK Client. Web interaction practice.release.xcconfig"; sourceTree = "<group>"; };
 		509F00FDC6CF36AB82ED69FE /* Pods_VK_Client__Web_interaction_practice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VK_Client__Web_interaction_practice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		581A99A2F12643E04E2AF716 /* Pods-VK Client. Web interaction practice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VK Client. Web interaction practice.debug.xcconfig"; path = "Target Support Files/Pods-VK Client. Web interaction practice/Pods-VK Client. Web interaction practice.debug.xcconfig"; sourceTree = "<group>"; };
+		EB18364B26A9B49E00CA9CB5 /* Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
 		EB1EEC6A268C3CC40083477D /* MainPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
 		EB20C3CA269E9DD300A204E7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EB2765A0268644BD00C060EC /* VKLoginPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKLoginPageViewController.swift; sourceTree = "<group>"; };
+		EB280F5326A208F300AD0FD2 /* ServiceSaverReaderFireBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceSaverReaderFireBase.swift; sourceTree = "<group>"; };
 		EB692BF9268EE23E0070636D /* Groups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Groups.swift; sourceTree = "<group>"; };
-		EB693AE82694EB170002D374 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		EB932EBD2691971A00382D14 /* FriendsListAndGroupsListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListAndGroupsListTableViewCell.swift; sourceTree = "<group>"; };
 		EB932EBE2691971A00382D14 /* FriendsListAndGroupsListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendsListAndGroupsListTableViewCell.xib; sourceTree = "<group>"; };
-		EB9DB4F32694E61500CA4660 /* UserPhotos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPhotos.swift; sourceTree = "<group>"; };
 		EBAE927D26962E3600F77130 /* FriendPhotos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendPhotos.swift; sourceTree = "<group>"; };
 		EBAE927F26962ECB00F77130 /* GroupPhotos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupPhotos.swift; sourceTree = "<group>"; };
-		EBB2918F2696C2E6009946E1 /* Messages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Messages.swift; sourceTree = "<group>"; };
 		EBC810CE2680FF1A0021CDE6 /* VK Client. Web interaction practice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VK Client. Web interaction practice.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBC810D12680FF1A0021CDE6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EBC810D32680FF1A0021CDE6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -56,12 +55,13 @@
 		EBC810DD2680FF1E0021CDE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EBC810DF2680FF1E0021CDE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EBC810E6268101810021CDE6 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
-		EBEABAD3268AEB610087BCA5 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		EBE603CD26A7E6330065BDD5 /* Data+PrettyJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+PrettyJson.swift"; sourceTree = "<group>"; };
+		EBEABAD3268AEB610087BCA5 /* ServiceAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceAPI.swift; sourceTree = "<group>"; };
 		EBF007052693A0D9003A3B3B /* InitialCoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InitialCoverViewController.swift; path = "VK Client. Web interaction practice/Cells/InitialCoverViewController.swift"; sourceTree = SOURCE_ROOT; };
 		EBF0BF01269067D8000FA1E8 /* Friends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friends.swift; sourceTree = "<group>"; };
 		EBF0BF042690909B000FA1E8 /* UserFriendsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFriendsListViewController.swift; sourceTree = "<group>"; };
 		EBF0BF06269090C1000FA1E8 /* UserGroupsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGroupsListViewController.swift; sourceTree = "<group>"; };
-		EBF66760269757B3001D5511 /* SaverReaderDbService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaverReaderDbService.swift; sourceTree = "<group>"; };
+		EBF66760269757B3001D5511 /* ServiceSaverReaderDb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceSaverReaderDb.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +91,24 @@
 				509F00FDC6CF36AB82ED69FE /* Pods_VK_Client__Web_interaction_practice.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EB18364A26A9B46500CA9CB5 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				EB18364B26A9B49E00CA9CB5 /* Manager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		EB7799E426A76AC1006DD54F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				EBEABAD3268AEB610087BCA5 /* ServiceAPI.swift */,
+				EBF66760269757B3001D5511 /* ServiceSaverReaderDb.swift */,
+				EB280F5326A208F300AD0FD2 /* ServiceSaverReaderFireBase.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		EB932EBC269196B700382D14 /* Cells */ = {
@@ -123,12 +141,15 @@
 		EBC810D02680FF1A0021CDE6 /* VK Client. Web interaction practice */ = {
 			isa = PBXGroup;
 			children = (
+				EB18364A26A9B46500CA9CB5 /* Managers */,
 				EBC810D12680FF1A0021CDE6 /* AppDelegate.swift */,
 				EBC810D32680FF1A0021CDE6 /* SceneDelegate.swift */,
 				EB932EBC269196B700382D14 /* Cells */,
 				EBF0BF032690901B000FA1E8 /* ViewControllers */,
 				EBC810E52681014F0021CDE6 /* Model */,
 				EBC810D72680FF1A0021CDE6 /* Main.storyboard */,
+				EBE603CC26A7E5F90065BDD5 /* Extensions */,
+				EB7799E426A76AC1006DD54F /* Services */,
 				EBC810DA2680FF1E0021CDE6 /* Assets.xcassets */,
 				EBC810DC2680FF1E0021CDE6 /* LaunchScreen.storyboard */,
 				EBC810DF2680FF1E0021CDE6 /* Info.plist */,
@@ -141,17 +162,20 @@
 			isa = PBXGroup;
 			children = (
 				EBC810E6268101810021CDE6 /* Session.swift */,
-				EBEABAD3268AEB610087BCA5 /* DataService.swift */,
-				EB692BF9268EE23E0070636D /* Groups.swift */,
 				EBF0BF01269067D8000FA1E8 /* Friends.swift */,
-				EB693AE82694EB170002D374 /* User.swift */,
-				EB9DB4F32694E61500CA4660 /* UserPhotos.swift */,
 				EBAE927D26962E3600F77130 /* FriendPhotos.swift */,
+				EB692BF9268EE23E0070636D /* Groups.swift */,
 				EBAE927F26962ECB00F77130 /* GroupPhotos.swift */,
-				EBB2918F2696C2E6009946E1 /* Messages.swift */,
-				EBF66760269757B3001D5511 /* SaverReaderDbService.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		EBE603CC26A7E5F90065BDD5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				EBE603CD26A7E6330065BDD5 /* Data+PrettyJson.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		EBF0BF032690901B000FA1E8 /* ViewControllers */ = {
@@ -283,15 +307,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				EBF007062693A0D9003A3B3B /* InitialCoverViewController.swift in Sources */,
-				EBB291902696C2E6009946E1 /* Messages.swift in Sources */,
 				EBAE927E26962E3600F77130 /* FriendPhotos.swift in Sources */,
 				EB2765A1268644BD00C060EC /* VKLoginPageViewController.swift in Sources */,
 				EB1EEC6B268C3CC40083477D /* MainPageViewController.swift in Sources */,
-				EBEABAD4268AEB610087BCA5 /* DataService.swift in Sources */,
+				EB280F5426A208F300AD0FD2 /* ServiceSaverReaderFireBase.swift in Sources */,
+				EBEABAD4268AEB610087BCA5 /* ServiceAPI.swift in Sources */,
 				EBF0BF02269067D8000FA1E8 /* Friends.swift in Sources */,
-				EB9DB4F42694E61500CA4660 /* UserPhotos.swift in Sources */,
+				EB18364C26A9B49E00CA9CB5 /* Manager.swift in Sources */,
 				EBF0BF052690909B000FA1E8 /* UserFriendsListViewController.swift in Sources */,
-				EB693AE92694EB170002D374 /* User.swift in Sources */,
 				EBF0BF07269090C1000FA1E8 /* UserGroupsListViewController.swift in Sources */,
 				EBC810E7268101810021CDE6 /* Session.swift in Sources */,
 				EB932EBF2691971A00382D14 /* FriendsListAndGroupsListTableViewCell.swift in Sources */,
@@ -299,7 +322,8 @@
 				EBC810D42680FF1A0021CDE6 /* SceneDelegate.swift in Sources */,
 				EB692BFA268EE23E0070636D /* Groups.swift in Sources */,
 				EBAE928026962ECB00F77130 /* GroupPhotos.swift in Sources */,
-				EBF66761269757B3001D5511 /* SaverReaderDbService.swift in Sources */,
+				EBF66761269757B3001D5511 /* ServiceSaverReaderDb.swift in Sources */,
+				EBE603CE26A7E6330065BDD5 /* Data+PrettyJson.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
