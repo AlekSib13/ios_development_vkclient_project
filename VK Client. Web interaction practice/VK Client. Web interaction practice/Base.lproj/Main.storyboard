@@ -61,6 +61,37 @@
             </objects>
             <point key="canvasLocation" x="4122" y="-1392"/>
         </scene>
+        <!--NewsFeed-->
+        <scene sceneID="gLU-ZT-t3B">
+            <objects>
+                <viewController title="NewsFeed" id="ZBx-DH-ttl" customClass="NewsFeedViewController" customModule="VK_Client__Web_interaction_practice" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ao4-u7-MGO">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yoa-FT-eEO">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="n0Z-h6-j6g"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="yoa-FT-eEO" firstAttribute="leading" secondItem="n0Z-h6-j6g" secondAttribute="leading" id="VEG-4r-5Nz"/>
+                            <constraint firstItem="n0Z-h6-j6g" firstAttribute="trailing" secondItem="yoa-FT-eEO" secondAttribute="trailing" id="gIr-2b-VWc"/>
+                            <constraint firstItem="n0Z-h6-j6g" firstAttribute="bottom" secondItem="yoa-FT-eEO" secondAttribute="bottom" id="nxG-qN-FCs"/>
+                            <constraint firstItem="yoa-FT-eEO" firstAttribute="top" secondItem="n0Z-h6-j6g" secondAttribute="top" id="yHi-lq-br8"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Лента" image="newspaper" catalog="system" id="zMB-oN-jCq"/>
+                    <connections>
+                        <outlet property="NewsFeedTable" destination="yoa-FT-eEO" id="Jfc-pJ-cTt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aQW-3m-rUg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4122" y="1010"/>
+        </scene>
         <!--MyFriends-->
         <scene sceneID="XBF-hN-jRy">
             <objects>
@@ -106,6 +137,7 @@
                         <segue destination="w0e-5J-hBZ" kind="relationship" relationship="viewControllers" id="sHA-6B-2I7"/>
                         <segue destination="Ajg-QH-qhG" kind="relationship" relationship="viewControllers" id="Xha-qA-mXd"/>
                         <segue destination="v9h-5T-jem" kind="relationship" relationship="viewControllers" id="gqc-fh-Ikb"/>
+                        <segue destination="ZBx-DH-ttl" kind="relationship" relationship="viewControllers" id="qjN-KK-obE"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Ch-eO-ajh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -190,6 +222,7 @@
     </scenes>
     <resources>
         <image name="circles.hexagonpath.fill" catalog="system" width="128" height="112"/>
+        <image name="newspaper" catalog="system" width="128" height="108"/>
         <image name="person" catalog="system" width="128" height="117"/>
         <image name="person.2" catalog="system" width="128" height="81"/>
         <systemColor name="systemBackgroundColor">

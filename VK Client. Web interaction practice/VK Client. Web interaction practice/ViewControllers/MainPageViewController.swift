@@ -22,7 +22,8 @@ class MainPageViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        enterFireBase()}
+//        enterFireBase()
+    }
 }
 
 
@@ -61,6 +62,7 @@ extension MainPageViewController{
 
 extension MainPageViewController {
     func enterFireBase(){
+        //fails with nil if open for the first time, because does not find email - repair.
         Auth.auth().signIn(withEmail: UserDefaults.standard.string(forKey: "user_email")!, password: UserDefaults.standard.string(forKey: "user_id")!){loginResult, loginError in
             if loginError != nil {
                 Auth.auth().createUser(withEmail: UserDefaults.standard.string(forKey: "user_email")!, password: UserDefaults.standard.string(forKey: "user_id")!){
