@@ -11,20 +11,17 @@ import UIKit
 protocol NewsFeedViewControllerProtocol: AnyObject, UITableViewDelegate, UITableViewDataSource {
     
     var NewsFeedTable: UITableView! {get}
-    
-    var configuration: NewsFeedConfigurationProtocol {get}
-    var interactor: NewsFeedInteractorProtocol? {get set}
-    var router: NewsFeedRouterProtocol? {get set}
+    var configurator: NewsFeedConfiguratorProtocol {get}
+    var presenter: NewsFeedPresenterProtocol! {get}
 }
 
 
 final class NewsFeedViewController: UIViewController {
     
-    @IBOutlet weak var NewsFeedTable: UITableView!
+    let configurator: NewsFeedConfiguratorProtocol = NewsFeedConfigurator()
+    var presenter: NewsFeedPresenterProtocol!
     
-    var configuration: NewsFeedConfigurationProtocol = NewsFeedConfiguration()
-    var interactor: NewsFeedInteractorProtocol?
-    var router: NewsFeedRouterProtocol?
+    @IBOutlet weak var NewsFeedTable: UITableView!
     
     let NewsFeedNewsOwnerCellIdentifier = "NewsFeedNewsOwnerCellIdentifier"
     let NewsFeedNewsCommentFromOwnerCellIdentifier = "NewsFeedNewsCommentFromOwnerCellIdentifier"
@@ -35,10 +32,13 @@ final class NewsFeedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        configurator.configure(with: self)
+        presenter.fetchNews()
+        
         NewsFeedTable.delegate = self
         NewsFeedTable.dataSource = self
-      
-        configuration.configure(with: self)
+        
+        cellRegistration()
     }
     
     
@@ -68,6 +68,4 @@ extension NewsFeedViewController: NewsFeedViewControllerProtocol {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         UITableViewCell()
     }
-    
-    
 }

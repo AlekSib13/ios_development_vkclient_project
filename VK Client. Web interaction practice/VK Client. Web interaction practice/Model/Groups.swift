@@ -24,7 +24,9 @@ class Group: Object, GroupDataSource {
     @objc dynamic var groupName: String?
     @objc dynamic var groupAvatar: String?
     
-    var photos = List<GroupPhoto>()
+    let photos = List<GroupPhoto>()
+//    let news = List<News>()
+
     
     convenience init(dataJSON: JSON){
         self.init()

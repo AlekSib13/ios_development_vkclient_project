@@ -15,7 +15,7 @@ class MainPageViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        ManagerSingleton.shared.downloadDataViaAPI()
+//        ManagerSingleton.shared.downloadDataViaAPI()
         checkForUserEmail()
     }
     

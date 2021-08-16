@@ -7,14 +7,24 @@
 
 import Foundation
 
-protocol NewsFeedPresenterProtocol {
+protocol NewsFeedPresenterProtocol: AnyObject {
     var view: NewsFeedViewControllerProtocol! {get set}
+    var interactor: NewsFeedInteractorProtocol! {get set}
+    var router: NewsFeedRouterProtocol! {get set}
+    
+    func fetchNews() -> Void
 }
 
 class NewsFeedPresenter: NewsFeedPresenterProtocol {
     weak var view: NewsFeedViewControllerProtocol!
+    var interactor: NewsFeedInteractorProtocol!
+    var router: NewsFeedRouterProtocol!
     
     init(view: NewsFeedViewControllerProtocol){
         self.view = view
+    }
+    
+    func fetchNews() -> Void {
+        interactor.getNewsFeedFromServer()
     }
 }

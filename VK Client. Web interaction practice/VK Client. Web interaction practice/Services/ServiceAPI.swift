@@ -47,6 +47,9 @@ protocol ServiceVKAPIExtendedProtocol {
     
     func getUserFriends(completion: @escaping ([Friend]) -> Void) -> Void
     func getUserGroups(completion: @escaping ([Group]) -> Void) -> Void
+    func getNewsFeed(completion: @escaping ([News]) -> Void) -> Void
+    
+    var apiQueue: DispatchQueue {get set}
 }
 
 
@@ -65,8 +68,11 @@ class ServiceVKAPIExtended: ServiceVKAPIExtendedProtocol {
     enum ApiMethods: String {
         case getUserFriends = "/friends.get"
         case getUserGroups = "/groups.get"
+        case getNewsFeed = "/newsfeed.get"
     }
     
+    
+    var apiQueue = DispatchQueue(label: "ApiQueue", attributes: .concurrent)
     
     func getUserFriends(completion: @escaping ([Friend]) -> Void) {
         let method = ApiMethods.getUserFriends.rawValue
@@ -75,15 +81,18 @@ class ServiceVKAPIExtended: ServiceVKAPIExtendedProtocol {
         
         let params: Parameters = ["user_id": userId, "fields": fields, "access_token": token, "v": version]
         
-        AF.request(url, method: .get, parameters: params).responseData{dataResponse in
-            guard let data = dataResponse.data else {return}
-            guard let items = JSON(data).response.items.array else {return}
-            
-            let friends: [Friend] = items.map{Friend(dataJSON: $0)}
-            
-            completion(friends)
+        apiQueue.async {
+            AF.request(url, method: .get, parameters: params).responseData{dataResponse in
+                guard let data = dataResponse.data else {return}
+                guard let items = JSON(data).response.items.array else {return}
+                
+                let friends: [Friend] = items.map{Friend(dataJSON: $0)}
+                
+                completion(friends)
+            }
         }
     }
+    
     
     func getUserGroups(completion: @escaping ([Group]) -> Void) {
         let method = ApiMethods.getUserGroups.rawValue
@@ -91,13 +100,35 @@ class ServiceVKAPIExtended: ServiceVKAPIExtendedProtocol {
         
         let params: Parameters = ["user_id": userId, "extended": 1 ,"access_token": token, "v": version]
         
-        AF.request(url, method: .get, parameters: params).responseData{dataResponse in
-            guard let data = dataResponse.data else {return}
-            guard let items = JSON(data).response.items.array else {return}
-            
-            let groups: [Group] = items.map{Group(dataJSON: $0)}
-            
-            completion(groups)
+        apiQueue.async {
+            AF.request(url, method: .get, parameters: params).responseData{dataResponse in
+                guard let data = dataResponse.data else {return}
+                guard let items = JSON(data).response.items.array else {return}
+                
+                let groups: [Group] = items.map{Group(dataJSON: $0)}
+                
+                completion(groups)
+            }
+        }
+    }
+    
+    
+    func getNewsFeed(completion: @escaping ([News]) -> Void) -> Void {
+        let method = ApiMethods.getNewsFeed.rawValue
+        let url = schema + host + path + method
+        fields = "post"
+        
+        
+        let params: Parameters = ["user_id": userId, "access_token": token, "v": version]
+        
+        apiQueue.async() {
+            AF.request(url, method: .get, parameters: params).responseData{dataResponse in
+                guard let data = dataResponse.data else {return}
+                guard let items = JSON(data).response.items.array else {return}
+                
+                let news: [News] = items.map{News(dataJSON: $0)}
+                completion(news)
+            }
         }
     }
 }
