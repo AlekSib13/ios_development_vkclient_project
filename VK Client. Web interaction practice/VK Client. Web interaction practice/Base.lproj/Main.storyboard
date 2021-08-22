@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Login Page View Controller-->
+        <!--Login Page Content View Controller-->
         <scene sceneID="GKS-9q-bKL">
             <objects>
-                <viewController storyboardIdentifier="VKLoginScene" id="d9o-HF-rxB" customClass="VKLoginPageViewController" customModule="VK_Client__Web_interaction_practice" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VKLoginScene" id="d9o-HF-rxB" customClass="VKLoginPageContentViewController" customModule="VK_Client__Web_interaction_practice" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dlo-cb-6HS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -36,7 +36,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="2i7-Jv-FPW"/>
                     <connections>
-                        <outlet property="webview" destination="2va-dZ-g2h" id="fgt-nO-1hc"/>
+                        <outlet property="webview" destination="2va-dZ-g2h" id="YQG-KT-kA5"/>
                         <segue destination="D2r-fR-rQA" kind="presentation" identifier="ToMainScreen" modalPresentationStyle="overFullScreen" modalTransitionStyle="flipHorizontal" id="8CS-48-nmH"/>
                     </connections>
                 </viewController>
@@ -44,12 +44,31 @@
             </objects>
             <point key="canvasLocation" x="1253.6231884057972" y="-662.27678571428567"/>
         </scene>
+        <!--Login View Controller Programmatically Made Layout-->
+        <scene sceneID="zXx-6Y-c2D">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="1jq-xI-bJe" customClass="VKLoginViewControllerProgrammaticallyMadeLayout" customModule="VK_Client__Web_interaction_practice" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Emh-la-dvx">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="UJY-wd-MId"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Sua-6c-l7z"/>
+                    <connections>
+                        <segue destination="D2r-fR-rQA" kind="show" identifier="ToMainScreenUpdated" id="7dc-vc-iNt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bam-Lv-esd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1254" y="112"/>
+        </scene>
         <!--MyPage-->
         <scene sceneID="Lig-46-gla">
             <objects>
-                <viewController storyboardIdentifier="MyPage" title="MyPage" id="w0e-5J-hBZ" customClass="MainPageViewController" customModule="VK_Client__Web_interaction_practice" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MyPage" title="MyPage" id="w0e-5J-hBZ" customClass="UserProfileViewController" customModule="VK_Client__Web_interaction_practice" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mto-J0-hyo">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="4K4-0d-LPL"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -66,11 +85,11 @@
             <objects>
                 <viewController title="NewsFeed" id="ZBx-DH-ttl" customClass="NewsFeedViewController" customModule="VK_Client__Web_interaction_practice" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ao4-u7-MGO">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yoa-FT-eEO">
-                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="759"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -97,11 +116,11 @@
             <objects>
                 <viewController title="MyFriends" id="Ajg-QH-qhG" customClass="UserFriendsListViewController" customModule="VK_Client__Web_interaction_practice" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LOb-ce-8Qp">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jxO-Uz-SA0">
-                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="759"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -126,8 +145,9 @@
         <!--Tab Bar Controller-->
         <scene sceneID="1Nb-0x-FWm">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="D2r-fR-rQA" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="D2r-fR-rQA" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="ALF-r9-gl4"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="awl-3T-8jk">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -149,11 +169,11 @@
             <objects>
                 <viewController title="MyGroups" id="v9h-5T-jem" customClass="UserGroupsListViewController" customModule="VK_Client__Web_interaction_practice" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FGG-zQ-QMb">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gDn-vS-r6I">
-                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="759"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -175,44 +195,19 @@
             </objects>
             <point key="canvasLocation" x="4122" y="-662"/>
         </scene>
-        <!--InitialCover-->
+        <!--InitialCoverPageViewController-->
         <scene sceneID="dAC-5O-cA8">
             <objects>
-                <viewController title="InitialCover" id="Tjp-xq-F8e" customClass="InitialCover" customModule="VK_Client__Web_interaction_practice" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="InitialCoverPageViewController" id="Tjp-xq-F8e" customClass="InitialCoverPageViewController" customModule="VK_Client__Web_interaction_practice" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iyF-Lz-SGQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6ST-4g-VTW">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QRo-2f-ayQ">
-                                        <rect key="frame" x="186" y="190" width="42" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstItem="QRo-2f-ayQ" firstAttribute="top" secondItem="6ST-4g-VTW" secondAttribute="top" constant="190" id="7MG-go-grA"/>
-                                    <constraint firstItem="QRo-2f-ayQ" firstAttribute="centerX" secondItem="6ST-4g-VTW" secondAttribute="centerX" id="jeL-TZ-FrG"/>
-                                </constraints>
-                            </view>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="n8u-mf-AfW"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="n8u-mf-AfW" firstAttribute="trailing" secondItem="6ST-4g-VTW" secondAttribute="trailing" id="IFU-KQ-P3A"/>
-                            <constraint firstItem="6ST-4g-VTW" firstAttribute="leading" secondItem="n8u-mf-AfW" secondAttribute="leading" id="TXh-py-bhg"/>
-                            <constraint firstItem="6ST-4g-VTW" firstAttribute="top" secondItem="n8u-mf-AfW" secondAttribute="top" id="lXu-f1-T0x"/>
-                            <constraint firstItem="n8u-mf-AfW" firstAttribute="bottom" secondItem="6ST-4g-VTW" secondAttribute="bottom" id="yU8-3w-BlQ"/>
-                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="VKTextLabel" destination="QRo-2f-ayQ" id="e9L-au-2mu"/>
-                        <outlet property="backGroundView" destination="6ST-4g-VTW" id="fju-VK-9ub"/>
-                        <segue destination="d9o-HF-rxB" kind="presentation" identifier="ToVKLoginScene" modalPresentationStyle="fullScreen" id="EKp-zP-Iet"/>
+                        <segue destination="d9o-HF-rxB" kind="presentation" identifier="ToVKLoginScreen" modalPresentationStyle="fullScreen" id="EKp-zP-Iet"/>
+                        <segue destination="1jq-xI-bJe" kind="show" identifier="ToVKLoginScreenUpdated" id="TQP-yf-zmG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hYO-gM-mrY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -220,6 +215,9 @@
             <point key="canvasLocation" x="306" y="-662"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="7dc-vc-iNt"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="circles.hexagonpath.fill" catalog="system" width="128" height="112"/>
         <image name="newspaper" catalog="system" width="128" height="108"/>

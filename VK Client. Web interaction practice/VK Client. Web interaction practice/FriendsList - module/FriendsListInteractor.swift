@@ -54,7 +54,7 @@ class FriendsListInteractor: FriendsListInteractorProtocol {
             self.presenter.returnFriendsList(friendsListFromDB: self.resultsFromDBRealm)
             
             DispatchQueue.global().async {
-                let realmConfig = Realm.Configuration(schemaVersion: 5)
+                let realmConfig = Realm.Configuration(schemaVersion: Singleton.shared.realmSchemaNum)
                 let realm = try! Realm(configuration: realmConfig)
                 guard let friendsListExisting = realm.resolve(resultsFromDBThreadSafeRef) else {return}
                 
@@ -73,22 +73,5 @@ class FriendsListInteractor: FriendsListInteractorProtocol {
         }
     }
 }
-    
-    
-//    func loadImageViaLink(imageLink: String) -> Void {
-//        DispatchQueue.global(qos: .utility).async {
-//            let downloadedImage = self.imageLoaderWorker.downloadImage(imageLink: imageLink)
-//            if let image = downloadedImage {
-//                DispatchQueue.main.async {
-//                    self.presenter.returnLoadedImage(image: image)
-//                }
-//            } else {let imageOptional = UIImage(named: "no_img")
-//                guard let image = imageOptional else {return}
-//                DispatchQueue.main.async {
-//                    self.presenter.returnLoadedImage(image: image)
-//                }
-//            }
-//        }
-//    }
     
 

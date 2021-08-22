@@ -56,7 +56,7 @@ class UserGroupsListInteractor: UserGroupsListInteractorProtocol {
             self.presenter.returnUserGroupsList(userGroupsListFromDB: self.resultsFromDBRealm)
             
             DispatchQueue.global().async {
-                let realmConfig = Realm.Configuration(schemaVersion: 5)
+                let realmConfig = Realm.Configuration(schemaVersion: Singleton.shared.realmSchemaNum)
                 let realm = try! Realm(configuration: realmConfig)
                 guard let userGroupsListExisting = realm.resolve(resultsFromDBThreadSafeRef) else {return}
                 
