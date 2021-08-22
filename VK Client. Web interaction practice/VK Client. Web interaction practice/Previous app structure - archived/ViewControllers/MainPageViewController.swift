@@ -5,10 +5,11 @@
 //  Created by Aleksandr Malinin on 30.06.2021.
 //
 
-import UIKit
-import RealmSwift
-import Firebase
+//import UIKit
+//import RealmSwift
+//import Firebase
 
+/*
 class MainPageViewController: UIViewController {
     
     
@@ -77,3 +78,4 @@ extension MainPageViewController {
 }
 
 
+*/

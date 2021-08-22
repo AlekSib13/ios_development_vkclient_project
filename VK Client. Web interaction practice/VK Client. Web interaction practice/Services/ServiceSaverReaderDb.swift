@@ -14,15 +14,14 @@ protocol ServiceDBRealmWritingReading {
 //    var realm: Realm {get}
     
     func writeToDB(elements: [AnyObject]) -> Void
-//    func readFromDB(cellIdentifierName: String) -> Any?
     func readFromDB (cellIdentifierName: String, completion: (Any) -> Void) -> Void
-
+    
+    func temporaryFuncWriteToDB(userAuthData: User) -> Void
 }
 
 
 class ServiceDBRealm: ServiceDBRealmWritingReading {
-
-    let realmConfig = Realm.Configuration(schemaVersion: 5)
+    let realmConfig = Realm.Configuration(schemaVersion: Singleton.shared.realmSchemaNum)
     
     enum DBWriteReadError: String, Error {
         case CouldNotWriteToDB = "The attempt to commit inssertion to RealmDB has failed"
@@ -59,6 +58,16 @@ class ServiceDBRealm: ServiceDBRealmWritingReading {
             let results = realm.objects(Group.self)
             completion(results)
         } else {return}
+    }
+    
+    
+    func temporaryFuncWriteToDB(userAuthData: User) {
+        let realm = try! Realm(configuration: realmConfig)
+        print(realm.configuration.fileURL)
+        realm.beginWrite()
+        realm.add(userAuthData, update: .modified)
+        do {
+            try realm.commitWrite()} catch {DBWriteReadError.CouldNotWriteToDB.rawValue}
     }
 }
 

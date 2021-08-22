@@ -17,7 +17,7 @@ class Singleton {
     var token = ""
     var userId = ""
     var someLK = ""
-    
+    var realmSchemaNum: UInt64 = 7
     
     var listOfFriendsAvatars = [Int:UIImage?]()
     var listOfGroupsAvatars = [Int:UIImage?]()
