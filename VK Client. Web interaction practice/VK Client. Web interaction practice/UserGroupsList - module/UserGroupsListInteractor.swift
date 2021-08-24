@@ -44,11 +44,75 @@ class UserGroupsListInteractor: UserGroupsListInteractorProtocol {
     }
     
     
+//    func getUserGroupsListFromDB(cellIdentifier: String) -> Void {
+//        self.realmDBWorker.readFromDB(cellIdentifierName: cellIdentifier){[weak self]
+//            resultsFromDB in
+//            guard let self = self else {return}
+//            guard let resultsFromDB = resultsFromDB as? Results<Group> else {return}
+//
+//            let resultsFromDBThreadSafeRef = ThreadSafeReference(to: resultsFromDB)
+//
+//            self.resultsFromDBRealm = Array(resultsFromDB)
+//            self.presenter.returnUserGroupsList(userGroupsListFromDB: self.resultsFromDBRealm)
+//
+//            DispatchQueue.global().async {
+//                let realmConfig = Realm.Configuration(schemaVersion: Singleton.shared.realmSchemaNum)
+//                let realm = try! Realm(configuration: realmConfig)
+//                guard let userGroupsListExisting = realm.resolve(resultsFromDBThreadSafeRef) else {return}
+//
+//                var userGroupsAvatarLinksList = [String]()
+//                for group in userGroupsListExisting {
+//                    let avatarlink = group.groupAvatar ?? "-"
+//                    userGroupsAvatarLinksList.append(avatarlink)
+//                }
+//                self.imageLoaderWorker.downloadImage(imageLinks: userGroupsAvatarLinksList){
+//                    listofImages in
+//                    DispatchQueue.main.async {
+//                        self.presenter.returnLoadedImage(listOfImages: listofImages)
+//                    }
+//                }
+//            }
+//        }
+//    }
+    
+//    func getUserGroupsListFromDB(cellIdentifier: String) -> Void {
+//        self.realmDBWorker.readFromDB(cellIdentifierName: cellIdentifier, completion:
+//        {[weak self]
+//            (resultsFromDB: Any...) in
+//            guard let self = self else {return}
+//            guard let resultsFromDB = resultsFromDB[0] as? Results<Group> else {return}
+//
+//            let resultsFromDBThreadSafeRef = ThreadSafeReference(to: resultsFromDB)
+//
+//            self.resultsFromDBRealm = Array(resultsFromDB)
+//            self.presenter.returnUserGroupsList(userGroupsListFromDB: self.resultsFromDBRealm)
+//
+//            DispatchQueue.global().async {
+//                let realmConfig = Realm.Configuration(schemaVersion: Singleton.shared.realmSchemaNum)
+//                let realm = try! Realm(configuration: realmConfig)
+//                guard let userGroupsListExisting = realm.resolve(resultsFromDBThreadSafeRef) else {return}
+//
+//                var userGroupsAvatarLinksList = [String]()
+//                for group in userGroupsListExisting {
+//                    let avatarlink = group.groupAvatar ?? "-"
+//                    userGroupsAvatarLinksList.append(avatarlink)
+//                }
+//                self.imageLoaderWorker.downloadImage(imageLinks: userGroupsAvatarLinksList){
+//                    listofImages in
+//                    DispatchQueue.main.async {
+//                        self.presenter.returnLoadedImage(listOfImages: listofImages)
+//                    }
+//                }
+//            }
+//        }
+//        )
+//    }
+    
     func getUserGroupsListFromDB(cellIdentifier: String) -> Void {
-        self.realmDBWorker.readFromDB(cellIdentifierName: cellIdentifier){[weak self]
-            resultsFromDB in
+        self.realmDBWorker.readFromDB(cellIdentifierName: cellIdentifier) {[weak self]
+            (resultsFromDB: Any...) in
             guard let self = self else {return}
-            guard let resultsFromDB = resultsFromDB as? Results<Group> else {return}
+            guard let resultsFromDB = resultsFromDB[0] as? Results<Group> else {return}
             
             let resultsFromDBThreadSafeRef = ThreadSafeReference(to: resultsFromDB)
             
@@ -74,5 +138,4 @@ class UserGroupsListInteractor: UserGroupsListInteractorProtocol {
             }
         }
     }
-    
 }

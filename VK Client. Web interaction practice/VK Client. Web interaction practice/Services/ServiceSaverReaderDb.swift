@@ -14,7 +14,7 @@ protocol ServiceDBRealmWritingReading {
 //    var realm: Realm {get}
     
     func writeToDB(elements: [AnyObject]) -> Void
-    func readFromDB (cellIdentifierName: String, completion: (Any) -> Void) -> Void
+    func readFromDB (cellIdentifierName: String, completion: (Any...) -> Void) -> Void
     
     func temporaryFuncWriteToDB(userAuthData: User) -> Void
 }
@@ -31,6 +31,7 @@ class ServiceDBRealm: ServiceDBRealmWritingReading {
     func writeToDB(elements: [AnyObject]) {
         let realm = try! Realm(configuration: realmConfig)
         print(realm.configuration.fileURL)
+        
         realm.beginWrite()
         
         for element in elements {
@@ -39,8 +40,12 @@ class ServiceDBRealm: ServiceDBRealmWritingReading {
             } else if let group = element as? Group {
                 realm.add(group, update: .modified)
             } else if let news = element as? News {
-                print(news)
                 realm.add(news, update: .modified)
+                
+                if let friend = realm.object(ofType: Friend.self, forPrimaryKey: news.sourceId) {
+                    friend.news.append(news)
+                } else if let group = realm.object(ofType: Group.self, forPrimaryKey: news.sourceId) {group.news.append(news)
+                }
             }
             else {continue}
         }
@@ -49,7 +54,7 @@ class ServiceDBRealm: ServiceDBRealmWritingReading {
     }
     
     
-    func readFromDB (cellIdentifierName: String, completion: (Any) -> Void) -> Void {
+    func readFromDB (cellIdentifierName: String, completion: (Any...) -> Void) -> Void {
         let realm = try! Realm(configuration: realmConfig)
         if cellIdentifierName == "friendsListTableViewCellIdentifier" {
             let results = realm.objects(Friend.self)
@@ -57,7 +62,26 @@ class ServiceDBRealm: ServiceDBRealmWritingReading {
         } else if cellIdentifierName == "groupsListTableViewCellIdentifier"{
             let results = realm.objects(Group.self)
             completion(results)
-        } else {return}
+        } else if cellIdentifierName == "newsFeedNewsOwnerCellIdentifier" {
+            
+            let resultsNews = realm.objects(News.self).sorted(byKeyPath: "newsDateTime", ascending: false).filter("newsText != nil || photos.@count > 0")
+            
+            
+            completion(resultsNews)
+            
+            // MARK: Alternative version of reading the news via news source (news owner either a friend or group)
+//            let resultsFriendsNews = realm.objects(Friend.self).filter("news.@count > 0")
+//            let resultsGroupsNews = realm.objects(Group.self).filter("news.@count > 0")
+            
+//            var resultsNews = [Any]()
+//            for friend in resultsFriendsNews {
+//                resultsNews.append(friend)
+//            }
+//            for group in resultsGroupsNews {
+//                resultsNews.append(group)
+//            }
+        }
+        else {return}
     }
     
     

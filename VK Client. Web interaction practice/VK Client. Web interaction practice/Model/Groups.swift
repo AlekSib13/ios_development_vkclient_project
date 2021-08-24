@@ -25,12 +25,12 @@ class Group: Object, GroupDataSource {
     @objc dynamic var groupAvatar: String?
     
     let photos = List<GroupPhoto>()
-//    let news = List<News>()
+    let news = List<News>()
 
     
     convenience init(dataJSON: JSON){
         self.init()
-        groupId = dataJSON.id.int as! Int
+        groupId = dataJSON.id.int as? Int ?? -1
         groupName = dataJSON.name.string as? String
         groupAvatar = dataJSON.photo_100.string as? String}
     

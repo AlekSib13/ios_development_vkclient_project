@@ -51,6 +51,7 @@ class UserProfileView: UIView, ViewProtocol {
         self.addSubview(userProfileInfoStack)
         userProfileInfoStack.addArrangedSubview(firstName)
         userProfileInfoStack.addArrangedSubview(lastName)
+//        firstName.isHidden = true
     }
     
     func setConstraints() {
