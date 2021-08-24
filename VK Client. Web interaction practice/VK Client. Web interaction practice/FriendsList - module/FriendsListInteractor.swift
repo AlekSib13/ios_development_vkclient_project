@@ -42,11 +42,42 @@ class FriendsListInteractor: FriendsListInteractorProtocol {
         }
     }
     
+//    func getFriendsListFromDB(cellIdentifier: String) -> Void {
+//        self.realmDBWorker.readFromDB(cellIdentifierName: cellIdentifier){[weak self]
+//            resultsFromDB in
+//            guard let self = self else {return}
+//            guard let resultsFromDB = resultsFromDB as? Results<Friend> else {return}
+//
+//            let resultsFromDBThreadSafeRef = ThreadSafeReference(to: resultsFromDB)
+//
+//            self.resultsFromDBRealm = Array(resultsFromDB)
+//            self.presenter.returnFriendsList(friendsListFromDB: self.resultsFromDBRealm)
+//
+//            DispatchQueue.global().async {
+//                let realmConfig = Realm.Configuration(schemaVersion: Singleton.shared.realmSchemaNum)
+//                let realm = try! Realm(configuration: realmConfig)
+//                guard let friendsListExisting = realm.resolve(resultsFromDBThreadSafeRef) else {return}
+//
+//                var friendsAvatarLinksList = [String]()
+//                for friend in friendsListExisting{
+//                    let avatarlink = friend.avatar ?? "-"
+//                    friendsAvatarLinksList.append(avatarlink)
+//                }
+//                self.imageLoaderWorker.downloadImage(imageLinks: friendsAvatarLinksList){
+//                    listofImages in
+//                    DispatchQueue.main.async {
+//                        self.presenter.returnLoadedImage(listOfImages: listofImages)
+//                    }
+//                }
+//            }
+//        }
+//    }
+    
     func getFriendsListFromDB(cellIdentifier: String) -> Void {
         self.realmDBWorker.readFromDB(cellIdentifierName: cellIdentifier){[weak self]
-            resultsFromDB in
+            (resultsFromDB: Any...) in
             guard let self = self else {return}
-            guard let resultsFromDB = resultsFromDB as? Results<Friend> else {return}
+            guard let resultsFromDB = resultsFromDB[0] as? Results<Friend> else {return}
             
             let resultsFromDBThreadSafeRef = ThreadSafeReference(to: resultsFromDB)
             
@@ -72,6 +103,7 @@ class FriendsListInteractor: FriendsListInteractorProtocol {
             }
         }
     }
+
 }
     
 

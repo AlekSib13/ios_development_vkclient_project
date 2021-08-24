@@ -30,11 +30,11 @@ class Friend: Object, FriendDataSource {
     @objc dynamic var city: String?
     
     let photos = List<FriendPhoto>()
-//    let news = List<News>()
+    let news = List<News>()
     
     convenience init(dataJSON: JSON) {
         self.init()
-        friendId = dataJSON.id.int as! Int
+        friendId = dataJSON.id.int as? Int ?? -1
         firstName = dataJSON.first_name.string
         lastName = dataJSON.last_name.string
         birthday = dataJSON.bdate.string
