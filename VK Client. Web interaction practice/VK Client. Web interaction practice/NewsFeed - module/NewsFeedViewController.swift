@@ -6,44 +6,63 @@
 //
 
 import UIKit
+import SnapKit
 
 
-protocol NewsFeedViewControllerProtocol: AnyObject, UITableViewDelegate, UITableViewDataSource {
+protocol NewsFeedViewControllerProtocol: AnyObject {
     
-    var NewsFeedTable: UITableView! {get}
+    var newsFeedTableView: UITableView {get}
     var configurator: NewsFeedConfiguratorProtocol {get}
     var presenter: NewsFeedPresenterProtocol! {get}
     
-    func returnNews(newsFromDB: [News]?) -> Void
-//    func returnNews(newsFromDB: [Any]?) -> Void
 }
 
 
 final class NewsFeedViewController: UIViewController {
     
+    
     let configurator: NewsFeedConfiguratorProtocol = NewsFeedConfigurator()
     var presenter: NewsFeedPresenterProtocol!
     
-    @IBOutlet weak var NewsFeedTable: UITableView!
+    let newsFeedTableView = UITableView()
     
     let NewsFeedNewsOwnerCellIdentifier = "newsFeedNewsOwnerCellIdentifier"
-    let NewsFeedNewsCommentFromOwnerCellIdentifier = "newsFeedNewsCommentFromOwnerCellIdentifier"
-    let NewsFeedNewsPhotoCellIdentifier = "newsFeedNewsPhotoCellIdentifier"
-    let NewsFeedNewsAdditionalInfoTableViewCellIdentifier = "newsFeedNewsAdditionalInfoTableViewCellIdentifier"
     
     var resultNewsFromDB: [News]?
     
+//    private lazy var refreshControl: UIRefreshControl = {
+//        let refreshControl = UIRefreshControl()
+//        refreshControl.addTarget(self, action: #selector(pullToRefresh), for: .valueChanged)
+//        return refreshControl
+//    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         configurator.configure(with: self)
+        assemblyUI()
+        configureTableView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         presenter.fetchNews()
-        
-        NewsFeedTable.delegate = self
-        NewsFeedTable.dataSource = self
-        
-        cellRegistration()
+    }
+    
+    
+    private func assemblyUI() {
+        view.addSubview(newsFeedTableView)
+        newsFeedTableView.snp.makeConstraints{make in
+            make.edges.equalToSuperview()
+        }
+    }
+    
+    
+    private func configureTableView() {
+        newsFeedTableView.dataSource = presenter
+        newsFeedTableView.delegate = presenter
+        newsFeedTableView.prefetchDataSource = presenter
+//        newsFeedTableView.refreshControl = refreshControl
+//        presenter.registerCell(into: newsFeedTableView)
     }
     
     
@@ -52,53 +71,10 @@ final class NewsFeedViewController: UIViewController {
 
 
 extension NewsFeedViewController: NewsFeedViewControllerProtocol {
-    
-    
-    func cellRegistration(){
-        NewsFeedTable.register(UINib(nibName: "newsFeedNewsOwnerCell", bundle: nil), forCellReuseIdentifier: NewsFeedNewsOwnerCellIdentifier)
-        NewsFeedTable.register(UINib(nibName: "newsFeedNewsCommentFromOwnerCell", bundle: nil), forCellReuseIdentifier: NewsFeedNewsCommentFromOwnerCellIdentifier )
-        NewsFeedTable.register(UINib(nibName: "newsFeedNewsPhotoCell", bundle: nil), forCellReuseIdentifier: NewsFeedNewsPhotoCellIdentifier)
-        NewsFeedTable.register(UINib(nibName: "newsFeedNewsAdditionalInfoTableViewCell", bundle: nil), forCellReuseIdentifier: NewsFeedNewsAdditionalInfoTableViewCellIdentifier)
-    }
-    
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        presenter.getNewsFromDB(cellIdentifier: NewsFeedNewsOwnerCellIdentifier)
-        let numberOfSections = self.resultNewsFromDB?.count ?? 0
-        
-        print("This is qty of results from db in viewController: \(numberOfSections)")
-        
-        return numberOfSections
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let resultNewsFromDBUnwrapped = resultNewsFromDB else {return 0}
-        
-        let numberOfRowsPerSection = presenter.returnNumberOfRowsPerSection(newsFromDB: resultNewsFromDBUnwrapped, section: section)
-        
-        return numberOfRowsPerSection
-    }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        4.0
-    }
-    
-    
-    
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        UITableViewCell()
+
+    @objc private func pullToRefresh() {
+        //MARK: here will be code
     }
 }
 
 
-extension NewsFeedViewController {
-    func returnNews(newsFromDB: [News]?) -> Void {
-        self.resultNewsFromDB = newsFromDB
-    }
-}
-
-    // MARK: Alternative version of reading the news via news source (news owner either a friend or group)
-//    func returnNews(newsFromDB: [Any]?) -> Void {
-//        self.resultNewsFromDB = newsFromDB
-//    }

@@ -11,10 +11,11 @@ import RealmSwift
 
 protocol ServiceDBRealmWritingReading {
     var realmConfig: Realm.Configuration {get}
-//    var realm: Realm {get}
     
     func writeToDB(elements: [AnyObject]) -> Void
-    func readFromDB (cellIdentifierName: String, completion: (Any...) -> Void) -> Void
+    func readFromDB(cellIdentifierName: String, completion: (Any...) -> Void) -> Void
+    
+    func readLastElementFromDB(cellIdentifierName: String, completion: (Any?) -> Void)
     
     func temporaryFuncWriteToDB(userAuthData: User) -> Void
 }
@@ -66,8 +67,11 @@ class ServiceDBRealm: ServiceDBRealmWritingReading {
             
             let resultsNews = realm.objects(News.self).sorted(byKeyPath: "newsDateTime", ascending: false).filter("newsText != nil || photos.@count > 0")
             
+            let resultsFriends = realm.objects(Friend.self).filter("news.@count > 0")
+            let resultsGroups = realm.objects(Group.self).filter("news.@count > 0")
             
-            completion(resultsNews)
+            
+            completion(resultsNews, resultsFriends, resultsGroups)
             
             // MARK: Alternative version of reading the news via news source (news owner either a friend or group)
 //            let resultsFriendsNews = realm.objects(Friend.self).filter("news.@count > 0")
@@ -95,4 +99,12 @@ class ServiceDBRealm: ServiceDBRealmWritingReading {
     }
 }
 
+extension ServiceDBRealm {
+    func readLastElementFromDB(cellIdentifierName: String, completion: (Any?) -> Void) {
+        let realm = try! Realm(configuration: realmConfig)
+        let sortedNews = realm.objects(News.self).sorted(byKeyPath: "newsDateTimeUnix", ascending: false)
+        let thelatestNews: News? = sortedNews[0]
+        completion(thelatestNews)
+    }
+}
 

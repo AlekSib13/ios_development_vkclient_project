@@ -20,3 +20,4 @@ class NewsFeedRouter: NewsFeedRouterProtocol {
     }
     
 }
+
