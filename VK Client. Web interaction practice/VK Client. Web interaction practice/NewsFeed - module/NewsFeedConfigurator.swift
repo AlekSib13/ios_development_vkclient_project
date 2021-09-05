@@ -39,3 +39,4 @@ class NewsFeedConfigurator: NewsFeedConfiguratorProtocol {
     
     
 }
+

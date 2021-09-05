@@ -14,6 +14,7 @@ protocol NewsDataSource {
     var newsId: Int {get}
     var sourceId: Int {get}
     var newsDateTime: NSDate {get}
+    var newsDateTimeUnix: Int {get}
     var newsNumberOfLikes: Int {get set}
     var newsText: String? {get set}
     var numberOfViews: Int {get set}
@@ -26,9 +27,11 @@ class News: Object,NewsDataSource {
     @objc dynamic var newsId = 0
     @objc dynamic var sourceId = 0
     @objc dynamic var newsDateTime = NSDate()
+    @objc dynamic var newsDateTimeUnix = 0
     @objc dynamic var newsNumberOfLikes = 0
     @objc dynamic var newsText: String?
     @objc dynamic var numberOfViews = 0
+    
 //    @objc dynamic var newsImageLink: String?
 //    @objc dynamic var newsNumberOfViews = 0
     
@@ -43,6 +46,7 @@ class News: Object,NewsDataSource {
         newsId = dataJSON.post_id.int as? Int ?? -1
         sourceId = abs(dataJSON.source_id.int as! Int)
         newsDateTime = NSDate(timeIntervalSince1970: dataJSON.date.double as! Double)
+        newsDateTimeUnix = dataJSON.date.int as? Int ?? 0
         newsNumberOfLikes = dataJSON.likes.count.int as? Int ?? 0
         newsText = dataJSON.text.string
         numberOfViews = dataJSON.views.count.int as? Int ?? 0

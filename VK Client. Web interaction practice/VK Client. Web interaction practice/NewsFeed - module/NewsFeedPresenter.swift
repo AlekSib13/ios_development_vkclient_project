@@ -5,26 +5,24 @@
 //  Created by Aleksandr Malinin on 28.07.2021.
 //
 
-import Foundation
 
-protocol NewsFeedPresenterProtocol: AnyObject {
+
+import Foundation
+import UIKit
+
+protocol NewsFeedPresenterProtocol: AnyObject, UITableViewDataSource, UITableViewDelegate, UITableViewDataSourcePrefetching {
     var view: NewsFeedViewControllerProtocol! {get set}
     var interactor: NewsFeedInteractorProtocol! {get set}
     var router: NewsFeedRouterProtocol! {get set}
     
+//    func registerCell(into tableView: UITableView) -> Void
+    
     func fetchNews() -> Void
-    func getNewsFromDB(cellIdentifier: String) -> Void
-    func returnNews(newsFromDB: [News]?) -> Void
-//    func returnNews(newsFromDB: [Any]?) -> Void
-    
-    
-    func returnNumberOfRowsPerSection(newsFromDB: [News], section: Int) -> Int
 }
 
-class NewsFeedPresenter: NewsFeedPresenterProtocol {
-    
-    
-    
+
+class NewsFeedPresenter: NSObject, NewsFeedPresenterProtocol {
+  
     weak var view: NewsFeedViewControllerProtocol!
     var interactor: NewsFeedInteractorProtocol!
     var router: NewsFeedRouterProtocol!
@@ -32,31 +30,51 @@ class NewsFeedPresenter: NewsFeedPresenterProtocol {
     init(view: NewsFeedViewControllerProtocol){
         self.view = view
     }
-    
-    func fetchNews() -> Void {
-        interactor.getNewsFeedFromServer()
-    }
-    
-    func getNewsFromDB(cellIdentifier: String) -> Void {
-        interactor.getNewsFromDB(cellIdentifier: cellIdentifier)
-    }
-    
-    func returnNews(newsFromDB: [News]?) {
-        view.returnNews(newsFromDB: newsFromDB)
-    }
         
     
-    func returnNumberOfRowsPerSection(newsFromDB: [News], section: Int) -> Int {
-        if newsFromDB[section].newsText != nil && newsFromDB[section].photos.count != 0 {
-            let numberOfRowsPerSection = 4
-            return numberOfRowsPerSection
-        }
-        else {return 3}
+    //MARK: Work with newsFeedTableView
+    
+    let newsFeedNewsOwnerCellIdentifier = "newsFeedNewsOwnerCellIdentifier"
+    
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return interactor.numberOfNews
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let contentParamsNum = interactor.returnNewsPostContentParamsNum(elementNum: section) else {return 0}
+        print ("this is content params num: \(contentParamsNum)")
+        return contentParamsNum
+        
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        
+        let pageSize = tableView.visibleCells.count
+        let totalSize = interactor.numberOfNews
+        guard let last = indexPaths.first, (totalSize - last.row) < pageSize else {return}
+        
+        interactor.getNewsFromDB(cellIdentifier: newsFeedNewsOwnerCellIdentifier)
+    }
+    
+    func registerCell(into tableView: UITableView) {
+        tableView.register(NewsFeedOwnerCell.self, forCellReuseIdentifier: newsFeedNewsOwnerCellIdentifier)
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        "new post"
     }
     
     
-    // MARK: Alternative version of reading the news via news source (news owner either a friend or group)
-    //    func returnNews(newsFromDB: [Any]?) {
-    //        view.returnNews(newsFromDB: newsFromDB)
-    //    }
+    //-------------
+    
+    
+    func fetchNews() -> Void {
+        interactor.getNewsFeedFromServer(cellIdentifier: newsFeedNewsOwnerCellIdentifier)
+        interactor.getNewsFromDB(cellIdentifier: newsFeedNewsOwnerCellIdentifier)
+    }
 }
