@@ -64,6 +64,9 @@ PODS:
   - Realm/Headers (10.9.0)
   - RealmSwift (10.9.0):
     - Realm (= 10.9.0)
+  - SDWebImage (5.12.5):
+    - SDWebImage/Core (= 5.12.5)
+  - SDWebImage/Core (5.12.5)
   - SnapKit (4.2.0)
 
 DEPENDENCIES:
@@ -73,6 +76,7 @@ DEPENDENCIES:
   - Firebase/Database
   - Firebase/Storage
   - RealmSwift
+  - SDWebImage (~> 5.0)
   - SnapKit (~> 4.0)
 
 SPEC REPOS:
@@ -93,6 +97,7 @@ SPEC REPOS:
     - PromisesObjC
     - Realm
     - RealmSwift
+    - SDWebImage
     - SnapKit
 
 SPEC CHECKSUMS:
@@ -112,8 +117,9 @@ SPEC CHECKSUMS:
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
   Realm: 9feef41ab8230ed706c4dc503fc292594915bf9a
   RealmSwift: 91246183b772e0ea1bf777116c4b8d9939f983b3
+  SDWebImage: 0905f1b7760fc8ac4198cae0036600d67478751e
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
 
-PODFILE CHECKSUM: 77e38dc6e9ad2e47b98d080a930524095d2c5490
+PODFILE CHECKSUM: 54568f0606c4f5852ca421d7dc0f4ee01b707317
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.11.3
