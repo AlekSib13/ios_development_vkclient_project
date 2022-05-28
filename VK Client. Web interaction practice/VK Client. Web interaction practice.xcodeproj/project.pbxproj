@@ -23,7 +23,7 @@
 		EB371E7F26DBA4C700E28B61 /* NewsFeedOwnerCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB371E7E26DBA4C700E28B61 /* NewsFeedOwnerCommentCell.swift */; };
 		EB371E8126DBA4FA00E28B61 /* NewsFeedOwnerPhotosCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB371E8026DBA4FA00E28B61 /* NewsFeedOwnerPhotosCell.swift */; };
 		EB371E8326DBA59500E28B61 /* NewsFeedFeedbackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB371E8226DBA59500E28B61 /* NewsFeedFeedbackCell.swift */; };
-		EB4F988D26C6AD32004D37CF /* FriendsListConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F988C26C6AD32004D37CF /* FriendsListConfigurator.swift */; };
+		EB4F988D26C6AD32004D37CF /* FriendsListModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F988C26C6AD32004D37CF /* FriendsListModuleBuilder.swift */; };
 		EB4F988F26C6ADDD004D37CF /* FriendsListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F988E26C6ADDD004D37CF /* FriendsListPresenter.swift */; };
 		EB4F989126C6AE4F004D37CF /* FriendsListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F989026C6AE4F004D37CF /* FriendsListInteractor.swift */; };
 		EB4F989326C6AE74004D37CF /* FriendsListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F989226C6AE74004D37CF /* FriendsListRouter.swift */; };
@@ -42,11 +42,22 @@
 		EB6EB8B426CA780E0021B4FD /* UserGroupsListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6EB8B326CA780E0021B4FD /* UserGroupsListRouter.swift */; };
 		EB6EB8B626CA78320021B4FD /* UserGroupsListConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6EB8B526CA78320021B4FD /* UserGroupsListConfigurator.swift */; };
 		EB79AAA426B3E00F00CDF982 /* NewsFeedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB79AAA326B3E00F00CDF982 /* NewsFeedModel.swift */; };
+		EB7CE15C2842121800BF6A15 /* UIImages+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7CE15B2842121800BF6A15 /* UIImages+Extension.swift */; };
+		EB7CE15F2842178D00BF6A15 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7CE15E2842178D00BF6A15 /* MainTabBarViewController.swift */; };
+		EB7CE1612842179D00BF6A15 /* MainTabBarPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7CE1602842179D00BF6A15 /* MainTabBarPresenter.swift */; };
+		EB7CE163284217AB00BF6A15 /* MainTabBarInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7CE162284217AB00BF6A15 /* MainTabBarInteractor.swift */; };
+		EB7CE165284217BC00BF6A15 /* MainTabBarRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7CE164284217BC00BF6A15 /* MainTabBarRouter.swift */; };
+		EB7CE168284217D200BF6A15 /* MainTabBarModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7CE167284217D200BF6A15 /* MainTabBarModuleBuilder.swift */; };
+		EB7CE16B28421C5100BF6A15 /* NewsFeedTapeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7CE16A28421C5100BF6A15 /* NewsFeedTapeViewController.swift */; };
+		EB7CE16D28421C6100BF6A15 /* NewsFeedTapePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7CE16C28421C6100BF6A15 /* NewsFeedTapePresenter.swift */; };
+		EB7CE16F28421C6F00BF6A15 /* NewsFeedTapeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7CE16E28421C6F00BF6A15 /* NewsFeedTapeInteractor.swift */; };
+		EB7CE17128421C7D00BF6A15 /* NewsFeedTapeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7CE17028421C7D00BF6A15 /* NewsFeedTapeRouter.swift */; };
+		EB7CE17328421C8B00BF6A15 /* NewsFeedTapeModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7CE17228421C8B00BF6A15 /* NewsFeedTapeModuleBuilder.swift */; };
 		EB932EBF2691971A00382D14 /* FriendsListAndGroupsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB932EBD2691971A00382D14 /* FriendsListAndGroupsListTableViewCell.swift */; };
 		EB932EC02691971A00382D14 /* FriendsListAndGroupsListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB932EBE2691971A00382D14 /* FriendsListAndGroupsListTableViewCell.xib */; };
 		EBAA11F426CF9F6B0085A1A1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAA11F326CF9F6B0085A1A1 /* User.swift */; };
 		EBAA11F726CFD8D50085A1A1 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAA11F626CFD8D50085A1A1 /* UserProfileViewController.swift */; };
-		EBAA11F926CFD9140085A1A1 /* UserProfileConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAA11F826CFD9140085A1A1 /* UserProfileConfigurator.swift */; };
+		EBAA11F926CFD9140085A1A1 /* UserProfileModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAA11F826CFD9140085A1A1 /* UserProfileModuleBuilder.swift */; };
 		EBAA11FB26CFD9270085A1A1 /* UserProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAA11FA26CFD9270085A1A1 /* UserProfilePresenter.swift */; };
 		EBAA11FD26CFD93F0085A1A1 /* UserProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAA11FC26CFD93F0085A1A1 /* UserProfileInteractor.swift */; };
 		EBAA11FF26CFD9520085A1A1 /* UserProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAA11FE26CFD9520085A1A1 /* UserProfileRouter.swift */; };
@@ -93,7 +104,7 @@
 		EB371E7E26DBA4C700E28B61 /* NewsFeedOwnerCommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedOwnerCommentCell.swift; sourceTree = "<group>"; };
 		EB371E8026DBA4FA00E28B61 /* NewsFeedOwnerPhotosCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedOwnerPhotosCell.swift; sourceTree = "<group>"; };
 		EB371E8226DBA59500E28B61 /* NewsFeedFeedbackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedFeedbackCell.swift; sourceTree = "<group>"; };
-		EB4F988C26C6AD32004D37CF /* FriendsListConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListConfigurator.swift; sourceTree = "<group>"; };
+		EB4F988C26C6AD32004D37CF /* FriendsListModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListModuleBuilder.swift; sourceTree = "<group>"; };
 		EB4F988E26C6ADDD004D37CF /* FriendsListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListPresenter.swift; sourceTree = "<group>"; };
 		EB4F989026C6AE4F004D37CF /* FriendsListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListInteractor.swift; sourceTree = "<group>"; };
 		EB4F989226C6AE74004D37CF /* FriendsListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListRouter.swift; sourceTree = "<group>"; };
@@ -112,11 +123,22 @@
 		EB6EB8B326CA780E0021B4FD /* UserGroupsListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGroupsListRouter.swift; sourceTree = "<group>"; };
 		EB6EB8B526CA78320021B4FD /* UserGroupsListConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGroupsListConfigurator.swift; sourceTree = "<group>"; };
 		EB79AAA326B3E00F00CDF982 /* NewsFeedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedModel.swift; sourceTree = "<group>"; };
+		EB7CE15B2842121800BF6A15 /* UIImages+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImages+Extension.swift"; sourceTree = "<group>"; };
+		EB7CE15E2842178D00BF6A15 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
+		EB7CE1602842179D00BF6A15 /* MainTabBarPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarPresenter.swift; sourceTree = "<group>"; };
+		EB7CE162284217AB00BF6A15 /* MainTabBarInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarInteractor.swift; sourceTree = "<group>"; };
+		EB7CE164284217BC00BF6A15 /* MainTabBarRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarRouter.swift; sourceTree = "<group>"; };
+		EB7CE167284217D200BF6A15 /* MainTabBarModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarModuleBuilder.swift; sourceTree = "<group>"; };
+		EB7CE16A28421C5100BF6A15 /* NewsFeedTapeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedTapeViewController.swift; sourceTree = "<group>"; };
+		EB7CE16C28421C6100BF6A15 /* NewsFeedTapePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedTapePresenter.swift; sourceTree = "<group>"; };
+		EB7CE16E28421C6F00BF6A15 /* NewsFeedTapeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedTapeInteractor.swift; sourceTree = "<group>"; };
+		EB7CE17028421C7D00BF6A15 /* NewsFeedTapeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedTapeRouter.swift; sourceTree = "<group>"; };
+		EB7CE17228421C8B00BF6A15 /* NewsFeedTapeModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedTapeModuleBuilder.swift; sourceTree = "<group>"; };
 		EB932EBD2691971A00382D14 /* FriendsListAndGroupsListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListAndGroupsListTableViewCell.swift; sourceTree = "<group>"; };
 		EB932EBE2691971A00382D14 /* FriendsListAndGroupsListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendsListAndGroupsListTableViewCell.xib; sourceTree = "<group>"; };
 		EBAA11F326CF9F6B0085A1A1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		EBAA11F626CFD8D50085A1A1 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
-		EBAA11F826CFD9140085A1A1 /* UserProfileConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileConfigurator.swift; sourceTree = "<group>"; };
+		EBAA11F826CFD9140085A1A1 /* UserProfileModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileModuleBuilder.swift; sourceTree = "<group>"; };
 		EBAA11FA26CFD9270085A1A1 /* UserProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfilePresenter.swift; sourceTree = "<group>"; };
 		EBAA11FC26CFD93F0085A1A1 /* UserProfileInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileInteractor.swift; sourceTree = "<group>"; };
 		EBAA11FE26CFD9520085A1A1 /* UserProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileRouter.swift; sourceTree = "<group>"; };
@@ -216,11 +238,23 @@
 			path = NewsFeed;
 			sourceTree = "<group>";
 		};
+		EB4067262840A11800C79F35 /* NewsFeedTape - module */ = {
+			isa = PBXGroup;
+			children = (
+				EB7CE16A28421C5100BF6A15 /* NewsFeedTapeViewController.swift */,
+				EB7CE16C28421C6100BF6A15 /* NewsFeedTapePresenter.swift */,
+				EB7CE16E28421C6F00BF6A15 /* NewsFeedTapeInteractor.swift */,
+				EB7CE17028421C7D00BF6A15 /* NewsFeedTapeRouter.swift */,
+				EB7CE17228421C8B00BF6A15 /* NewsFeedTapeModuleBuilder.swift */,
+			);
+			path = "NewsFeedTape - module";
+			sourceTree = "<group>";
+		};
 		EB4F988926C6ACA8004D37CF /* FriendsList - module */ = {
 			isa = PBXGroup;
 			children = (
 				EBF0BF042690909B000FA1E8 /* FriendsListViewController.swift */,
-				EB4F988C26C6AD32004D37CF /* FriendsListConfigurator.swift */,
+				EB4F988C26C6AD32004D37CF /* FriendsListModuleBuilder.swift */,
 				EB4F988E26C6ADDD004D37CF /* FriendsListPresenter.swift */,
 				EB4F989026C6AE4F004D37CF /* FriendsListInteractor.swift */,
 				EB4F989226C6AE74004D37CF /* FriendsListRouter.swift */,
@@ -289,6 +323,26 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		EB7CE15A284211FC00BF6A15 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				EB7CE15B2842121800BF6A15 /* UIImages+Extension.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		EB7CE15D2842175A00BF6A15 /* MainTabBar - module */ = {
+			isa = PBXGroup;
+			children = (
+				EB7CE15E2842178D00BF6A15 /* MainTabBarViewController.swift */,
+				EB7CE1602842179D00BF6A15 /* MainTabBarPresenter.swift */,
+				EB7CE162284217AB00BF6A15 /* MainTabBarInteractor.swift */,
+				EB7CE164284217BC00BF6A15 /* MainTabBarRouter.swift */,
+				EB7CE167284217D200BF6A15 /* MainTabBarModuleBuilder.swift */,
+			);
+			path = "MainTabBar - module";
+			sourceTree = "<group>";
+		};
 		EB932EBC269196B700382D14 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -302,7 +356,7 @@
 			isa = PBXGroup;
 			children = (
 				EBAA11F626CFD8D50085A1A1 /* UserProfileViewController.swift */,
-				EBAA11F826CFD9140085A1A1 /* UserProfileConfigurator.swift */,
+				EBAA11F826CFD9140085A1A1 /* UserProfileModuleBuilder.swift */,
 				EBAA11FA26CFD9270085A1A1 /* UserProfilePresenter.swift */,
 				EBAA11FC26CFD93F0085A1A1 /* UserProfileInteractor.swift */,
 				EBAA11FE26CFD9520085A1A1 /* UserProfileRouter.swift */,
@@ -349,6 +403,9 @@
 		EBC810D02680FF1A0021CDE6 /* VK Client. Web interaction practice */ = {
 			isa = PBXGroup;
 			children = (
+				EB7CE15D2842175A00BF6A15 /* MainTabBar - module */,
+				EB7CE15A284211FC00BF6A15 /* Resources */,
+				EB4067262840A11800C79F35 /* NewsFeedTape - module */,
 				EBBA953126CD2127008FA419 /* Previous app structure - archived */,
 				EB2F1AE826CEC7FA007A62D1 /* SharedProtocols */,
 				EB4FA9DA26CC283C0093C320 /* InitialCoverPage - module */,
@@ -534,28 +591,35 @@
 			buildActionMask = 2147483647;
 			files = (
 				EBF007062693A0D9003A3B3B /* InitialCoverPageViewController.swift in Sources */,
-				EBAA11F926CFD9140085A1A1 /* UserProfileConfigurator.swift in Sources */,
+				EBAA11F926CFD9140085A1A1 /* UserProfileModuleBuilder.swift in Sources */,
 				EBAE927E26962E3600F77130 /* FriendPhotos.swift in Sources */,
 				EB2765A1268644BD00C060EC /* VKLoginPageViewController.swift in Sources */,
 				EB66A3EB26B1B70500BC9B7D /* NewsFeedViewController.swift in Sources */,
 				EBF76A7826CCE2C600DD4F8B /* VKLoginPageContentViewController.swift in Sources */,
 				EBAA11F726CFD8D50085A1A1 /* UserProfileViewController.swift in Sources */,
 				EB1EEC6B268C3CC40083477D /* MainPageViewController.swift in Sources */,
+				EB7CE163284217AB00BF6A15 /* MainTabBarInteractor.swift in Sources */,
+				EB7CE15F2842178D00BF6A15 /* MainTabBarViewController.swift in Sources */,
 				EB4FA9DC26CC295F0093C320 /* InitialCoverPageConfigurator.swift in Sources */,
 				EBF76A7A26CCE37F00DD4F8B /* VKLoginPageContentConfigurator.swift in Sources */,
 				EB371E7F26DBA4C700E28B61 /* NewsFeedOwnerCommentCell.swift in Sources */,
+				EB7CE15C2842121800BF6A15 /* UIImages+Extension.swift in Sources */,
 				EBAA11FB26CFD9270085A1A1 /* UserProfilePresenter.swift in Sources */,
 				EB4FA9E226CC29A10093C320 /* InitialCoverPageRouter.swift in Sources */,
 				EB2F1AE326CE2FB7007A62D1 /* InitialCoverPageViews.swift in Sources */,
 				EB280F5426A208F300AD0FD2 /* ServiceSaverReaderFireBase.swift in Sources */,
 				EB371E8126DBA4FA00E28B61 /* NewsFeedOwnerPhotosCell.swift in Sources */,
+				EB7CE168284217D200BF6A15 /* MainTabBarModuleBuilder.swift in Sources */,
 				EBAA11F426CF9F6B0085A1A1 /* User.swift in Sources */,
 				EBEABAD4268AEB610087BCA5 /* ServiceAPI.swift in Sources */,
 				EB79AAA426B3E00F00CDF982 /* NewsFeedModel.swift in Sources */,
 				EBF0BF02269067D8000FA1E8 /* Friends.swift in Sources */,
 				EB18364C26A9B49E00CA9CB5 /* Manager.swift in Sources */,
+				EB7CE16F28421C6F00BF6A15 /* NewsFeedTapeInteractor.swift in Sources */,
 				EB371E8326DBA59500E28B61 /* NewsFeedFeedbackCell.swift in Sources */,
 				EB19133F26C974E70012158A /* ServiceImageLoader.swift in Sources */,
+				EB7CE17328421C8B00BF6A15 /* NewsFeedTapeModuleBuilder.swift in Sources */,
+				EB7CE1612842179D00BF6A15 /* MainTabBarPresenter.swift in Sources */,
 				EB4F989126C6AE4F004D37CF /* FriendsListInteractor.swift in Sources */,
 				EB66A3F526B1B9B900BC9B7D /* NewsFeedConfigurator.swift in Sources */,
 				EBF76A7C26CCE3CC00DD4F8B /* VKLoginPageContentPresenter.swift in Sources */,
@@ -564,6 +628,8 @@
 				EBF0BF07269090C1000FA1E8 /* UserGroupsListViewController.swift in Sources */,
 				EB4FA9DE26CC29710093C320 /* InitialCoverPagePresenter.swift in Sources */,
 				EB2F1AEA26CEC80E007A62D1 /* SharedProtocols.swift in Sources */,
+				EB7CE16B28421C5100BF6A15 /* NewsFeedTapeViewController.swift in Sources */,
+				EB7CE165284217BC00BF6A15 /* MainTabBarRouter.swift in Sources */,
 				EB66A3F126B1B94300BC9B7D /* NewsFeedRouter.swift in Sources */,
 				EBC810E7268101810021CDE6 /* Session.swift in Sources */,
 				EB371E7D26DBA49C00E28B61 /* NewsFeedOwnerCell.swift in Sources */,
@@ -574,11 +640,13 @@
 				EB6EB8B026CA77910021B4FD /* UserGroupsListPresenter.swift in Sources */,
 				EB32B79B26D3B98200A1ECD2 /* NewsFeedPhotosModel.swift in Sources */,
 				EBC810D22680FF1A0021CDE6 /* AppDelegate.swift in Sources */,
+				EB7CE17128421C7D00BF6A15 /* NewsFeedTapeRouter.swift in Sources */,
 				EB66A3EF26B1B93400BC9B7D /* NewsFeedPresenter.swift in Sources */,
 				EBC810D42680FF1A0021CDE6 /* SceneDelegate.swift in Sources */,
 				EB692BFA268EE23E0070636D /* Groups.swift in Sources */,
+				EB7CE16D28421C6100BF6A15 /* NewsFeedTapePresenter.swift in Sources */,
 				EBAA120226CFD97D0085A1A1 /* UserProfileViews.swift in Sources */,
-				EB4F988D26C6AD32004D37CF /* FriendsListConfigurator.swift in Sources */,
+				EB4F988D26C6AD32004D37CF /* FriendsListModuleBuilder.swift in Sources */,
 				EBF76A7E26CCE3E400DD4F8B /* VKLoginPageContentInteractor.swift in Sources */,
 				EBAA11FF26CFD9520085A1A1 /* UserProfileRouter.swift in Sources */,
 				EB4F989326C6AE74004D37CF /* FriendsListRouter.swift in Sources */,

@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+
+protocol UserProfileRouterProtocol {}
+
+class UserProfileRouter: UserProfileRouterProtocol {
+    
+    weak var vc: UserProfileViewControllerProtocol?
+}

@@ -22,7 +22,10 @@ class VKLoginPageContentRouter: VKLoginPageContentRouterProtocol {
     }
 
     func moveToUserLoginScreen() {
-        view.performSegue(withIdentifier: "ToMainScreenUpdated", sender: nil)
+        //here transition to main module
+//        view.performSegue(withIdentifier: "ToMainScreenUpdated", sender: nil)
+        let vc = MainTabBarModuleBuilder.build()
+        view.view.window?.rootViewController = vc
     }
 }
 

@@ -10,10 +10,6 @@ import UIKit
 
 
 protocol FriendsListPresenterProtocol: AnyObject {
-    var view: FriendsListViewControllerProtocol! {get}
-    var interactor: FriendsListInteractorProtocol! {get set}
-    var router: FriendsListRouterProtocol! {get set}
-    
     func fetchFriendsList() -> Void
     func getFriendsListFromDB(cellIdentifier: String) -> Void
     func returnFriendsList(friendsListFromDB: [Friend]?) -> Void
@@ -24,13 +20,15 @@ protocol FriendsListPresenterProtocol: AnyObject {
 
 class FriendsListPresenter: FriendsListPresenterProtocol {
 
-    weak var view: FriendsListViewControllerProtocol!
-    var interactor: FriendsListInteractorProtocol!
-    var router: FriendsListRouterProtocol!
+    let interactor: FriendsListInteractorProtocol
+    let router: FriendsListRouterProtocol
+    weak var vc: FriendsListViewControllerProtocol?
+    
     var friendsList = [Friend]()
     
-    init(view: FriendsListViewControllerProtocol) {
-        self.view = view
+    init(interactor: FriendsListInteractorProtocol, router: FriendsListRouterProtocol) {
+        self.interactor = interactor
+        self.router = router
     }
     
     func fetchFriendsList() {
@@ -42,17 +40,17 @@ class FriendsListPresenter: FriendsListPresenterProtocol {
     }
     
     func returnFriendsList(friendsListFromDB: [Friend]?) -> Void {
-        view.returnFriendsList(friendsListFromDB: friendsListFromDB)
+        vc?.returnFriendsList(friendsListFromDB: friendsListFromDB)
     }
     
     func returnLoadedImage(listOfImages: [UIImage]) -> Void {
-        view.returnLoadedImage(listOfImages: listOfImages)
+        vc?.returnLoadedImage(listOfImages: listOfImages)
     }
     
     
     func loadAvatarIntoCell(cellIndex: Int) -> UIImage? {
-        if view.listOfAvatars != nil {
-            guard let listOfAvatars = view.listOfAvatars else  {
+        if vc?.listOfAvatars != nil {
+            guard let listOfAvatars = vc?.listOfAvatars else  {
                 guard let image = UIImage(named: "no_img") else {return nil}
                 return image}
             let image = listOfAvatars[cellIndex]

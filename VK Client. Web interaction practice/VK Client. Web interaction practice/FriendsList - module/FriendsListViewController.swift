@@ -9,8 +9,7 @@ import UIKit
 import RealmSwift
 
 protocol FriendsListViewControllerProtocol: AnyObject {
-    var configurator: FriendsListConfiguratorProtocol {get}
-    var presenter: FriendsListPresenterProtocol! {get set}
+
     func returnFriendsList(friendsListFromDB: [Friend]?) -> Void
     func returnLoadedImage(listOfImages: [UIImage]) -> Void
     var listOfAvatars: [UIImage]? {get set}
@@ -19,19 +18,27 @@ protocol FriendsListViewControllerProtocol: AnyObject {
 
 class UserFriendsListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, FriendsListViewControllerProtocol {
     
-    var configurator: FriendsListConfiguratorProtocol = FriendslistConfigurator()
-    var presenter: FriendsListPresenterProtocol!
+
+    var presenter: FriendsListPresenterProtocol
 //    var realmToken: NotificationToken?
     @IBOutlet weak var friendsList: UITableView!
     
     let cellFriendsListIdentifier = "friendsListTableViewCellIdentifier"
     var resultFriendsListFromDB: [Friend]?
     var listOfAvatars: [UIImage]?
-
+    
+    init(presenter: FriendsListPresenterProtocol) {
+        self.presenter = presenter
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configurator.configure(with: self)
         presenter.fetchFriendsList()
         
         friendsList.dataSource = self

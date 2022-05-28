@@ -9,7 +9,6 @@ import Foundation
 import RealmSwift
 
 protocol FriendsListInteractorProtocol {
-    var presenter: FriendsListPresenterProtocol! {get}
     var apiWorker: ServiceVKAPIExtendedProtocol {get}
     var realmDBWorker: ServiceDBRealmWritingReading {get}
     var resultsFromDBRealm: [Friend]? {get}
@@ -21,16 +20,13 @@ protocol FriendsListInteractorProtocol {
 
 
 class FriendsListInteractor: FriendsListInteractorProtocol {
-    weak var presenter: FriendsListPresenterProtocol!
+    weak var presenter: FriendsListPresenterProtocol?
+    
     var apiWorker: ServiceVKAPIExtendedProtocol = ServiceVKAPIExtended()
     var realmDBWorker: ServiceDBRealmWritingReading = ServiceDBRealm()
     var imageLoaderWorker: ImageLoaderProtocol = ImageLoader()
     var resultsFromDBRealm: [Friend]?
     
-    
-    init(presenter: FriendsListPresenterProtocol) {
-        self.presenter = presenter
-    }
     
     func getFriendsListFromServer() -> Void {
         apiWorker.getUserFriends{[weak self] friends in
@@ -82,7 +78,7 @@ class FriendsListInteractor: FriendsListInteractorProtocol {
             let resultsFromDBThreadSafeRef = ThreadSafeReference(to: resultsFromDB)
             
             self.resultsFromDBRealm = Array(resultsFromDB)
-            self.presenter.returnFriendsList(friendsListFromDB: self.resultsFromDBRealm)
+            self.presenter?.returnFriendsList(friendsListFromDB: self.resultsFromDBRealm)
             
             DispatchQueue.global().async {
                 let realmConfig = Realm.Configuration(schemaVersion: Singleton.shared.realmSchemaNum)
@@ -97,7 +93,7 @@ class FriendsListInteractor: FriendsListInteractorProtocol {
                 self.imageLoaderWorker.downloadImage(imageLinks: friendsAvatarLinksList){
                     listofImages in
                     DispatchQueue.main.async {
-                        self.presenter.returnLoadedImage(listOfImages: listofImages)
+                        self.presenter?.returnLoadedImage(listOfImages: listofImages)
                     }
                 }
             }

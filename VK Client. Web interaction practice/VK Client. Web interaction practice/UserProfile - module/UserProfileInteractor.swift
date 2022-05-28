@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+
+protocol UserProfileInteractorProtocol {}
+
+class UserProfileInteractor: UserProfileInteractorProtocol {
+    
+    weak var presenter: UserProfilePresenterProtocol?
+}

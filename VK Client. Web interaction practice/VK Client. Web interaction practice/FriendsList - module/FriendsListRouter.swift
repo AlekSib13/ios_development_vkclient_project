@@ -8,13 +8,10 @@
 import Foundation
 
 protocol FriendsListRouterProtocol {
-    var view: FriendsListViewControllerProtocol! {get}
 }
 
 class FriendsListRouter: FriendsListRouterProtocol {
-    weak var view: FriendsListViewControllerProtocol!
     
-    init(view: FriendsListViewControllerProtocol){
-        self.view = view
-    }
+    weak var vc: FriendsListViewControllerProtocol?
+    
 }
