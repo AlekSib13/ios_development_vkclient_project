@@ -14,8 +14,16 @@ protocol InitialCoverPageInteractorProtocol {
 
 class InitialCoverPageInteractor: InitialCoverPageInteractorProtocol {
     weak var presenter: InitialCoverPagePresenterProtocol?
+    let dbManager: UserAuthDataRealmDBManagerProtocol
     
-    init(presenter: InitialCoverPagePresenterProtocol){
-        self.presenter = presenter
+    
+    init(dbService: UserAuthDataRealmDBManagerProtocol) {
+        dbManager = dbService
+        checkForCredentials()
+    }
+    
+    func checkForCredentials() {
+        presenter?.loadingStarted()
+        dbManager.readUserAuthData(userCredentials: <#T##UserAuthData?#>, callback: <#T##(Result<UserAuthData, Error>) -> Void#>)
     }
 }

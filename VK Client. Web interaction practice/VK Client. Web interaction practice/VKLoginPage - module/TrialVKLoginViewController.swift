@@ -18,8 +18,6 @@ protocol VKLoginPageContentViewControllerProtocol: AnyObject {
 
 class VKLoginViewControllerProgrammaticallyMadeLayout: UIViewController, VKLoginPageContentViewControllerProtocol {
 
-    
-    
     var configurator: VKLoginPageContentConfigurfatorProtocol = VKLoginPageContentConfigurfator()
     var presenter: VKLoginPageContentPresenterProtocol!
     var webViewContainer = VKLoginPageView()
