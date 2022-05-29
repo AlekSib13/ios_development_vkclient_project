@@ -23,11 +23,16 @@
 		EB371E7F26DBA4C700E28B61 /* NewsFeedOwnerCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB371E7E26DBA4C700E28B61 /* NewsFeedOwnerCommentCell.swift */; };
 		EB371E8126DBA4FA00E28B61 /* NewsFeedOwnerPhotosCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB371E8026DBA4FA00E28B61 /* NewsFeedOwnerPhotosCell.swift */; };
 		EB371E8326DBA59500E28B61 /* NewsFeedFeedbackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB371E8226DBA59500E28B61 /* NewsFeedFeedbackCell.swift */; };
+		EB46572128437E9700B6FD2F /* RealmDBService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB46572028437E9700B6FD2F /* RealmDBService.swift */; };
+		EB465723284383AA00B6FD2F /* RealmDBService + UserToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB465722284383AA00B6FD2F /* RealmDBService + UserToken.swift */; };
+		EB4657262843854A00B6FD2F /* RmUserAuthData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4657252843854A00B6FD2F /* RmUserAuthData.swift */; };
+		EB46572828438B9E00B6FD2F /* UserAuthData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB46572728438B9E00B6FD2F /* UserAuthData.swift */; };
+		EB46572A28439C9B00B6FD2F /* ErrorsDomains.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB46572928439C9B00B6FD2F /* ErrorsDomains.swift */; };
 		EB4F988D26C6AD32004D37CF /* FriendsListModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F988C26C6AD32004D37CF /* FriendsListModuleBuilder.swift */; };
 		EB4F988F26C6ADDD004D37CF /* FriendsListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F988E26C6ADDD004D37CF /* FriendsListPresenter.swift */; };
 		EB4F989126C6AE4F004D37CF /* FriendsListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F989026C6AE4F004D37CF /* FriendsListInteractor.swift */; };
 		EB4F989326C6AE74004D37CF /* FriendsListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F989226C6AE74004D37CF /* FriendsListRouter.swift */; };
-		EB4FA9DC26CC295F0093C320 /* InitialCoverPageConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4FA9DB26CC295F0093C320 /* InitialCoverPageConfigurator.swift */; };
+		EB4FA9DC26CC295F0093C320 /* InitialCoverPageModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4FA9DB26CC295F0093C320 /* InitialCoverPageModuleBuilder.swift */; };
 		EB4FA9DE26CC29710093C320 /* InitialCoverPagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4FA9DD26CC29710093C320 /* InitialCoverPagePresenter.swift */; };
 		EB4FA9E026CC29870093C320 /* InitialCoverPageInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4FA9DF26CC29870093C320 /* InitialCoverPageInteractor.swift */; };
 		EB4FA9E226CC29A10093C320 /* InitialCoverPageRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4FA9E126CC29A10093C320 /* InitialCoverPageRouter.swift */; };
@@ -78,7 +83,7 @@
 		EBF0BF07269090C1000FA1E8 /* UserGroupsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF0BF06269090C1000FA1E8 /* UserGroupsListViewController.swift */; };
 		EBF66761269757B3001D5511 /* ServiceSaverReaderDb.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF66760269757B3001D5511 /* ServiceSaverReaderDb.swift */; };
 		EBF76A7826CCE2C600DD4F8B /* VKLoginPageContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF76A7726CCE2C600DD4F8B /* VKLoginPageContentViewController.swift */; };
-		EBF76A7A26CCE37F00DD4F8B /* VKLoginPageContentConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF76A7926CCE37F00DD4F8B /* VKLoginPageContentConfigurator.swift */; };
+		EBF76A7A26CCE37F00DD4F8B /* VKLoginPageContentModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF76A7926CCE37F00DD4F8B /* VKLoginPageContentModuleBuilder.swift */; };
 		EBF76A7C26CCE3CC00DD4F8B /* VKLoginPageContentPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF76A7B26CCE3CC00DD4F8B /* VKLoginPageContentPresenter.swift */; };
 		EBF76A7E26CCE3E400DD4F8B /* VKLoginPageContentInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF76A7D26CCE3E400DD4F8B /* VKLoginPageContentInteractor.swift */; };
 		EBF76A8026CCE40600DD4F8B /* VKLoginPageContentRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF76A7F26CCE40600DD4F8B /* VKLoginPageContentRouter.swift */; };
@@ -104,11 +109,16 @@
 		EB371E7E26DBA4C700E28B61 /* NewsFeedOwnerCommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedOwnerCommentCell.swift; sourceTree = "<group>"; };
 		EB371E8026DBA4FA00E28B61 /* NewsFeedOwnerPhotosCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedOwnerPhotosCell.swift; sourceTree = "<group>"; };
 		EB371E8226DBA59500E28B61 /* NewsFeedFeedbackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedFeedbackCell.swift; sourceTree = "<group>"; };
+		EB46572028437E9700B6FD2F /* RealmDBService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDBService.swift; sourceTree = "<group>"; };
+		EB465722284383AA00B6FD2F /* RealmDBService + UserToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RealmDBService + UserToken.swift"; sourceTree = "<group>"; };
+		EB4657252843854A00B6FD2F /* RmUserAuthData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RmUserAuthData.swift; sourceTree = "<group>"; };
+		EB46572728438B9E00B6FD2F /* UserAuthData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthData.swift; sourceTree = "<group>"; };
+		EB46572928439C9B00B6FD2F /* ErrorsDomains.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorsDomains.swift; sourceTree = "<group>"; };
 		EB4F988C26C6AD32004D37CF /* FriendsListModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListModuleBuilder.swift; sourceTree = "<group>"; };
 		EB4F988E26C6ADDD004D37CF /* FriendsListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListPresenter.swift; sourceTree = "<group>"; };
 		EB4F989026C6AE4F004D37CF /* FriendsListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListInteractor.swift; sourceTree = "<group>"; };
 		EB4F989226C6AE74004D37CF /* FriendsListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListRouter.swift; sourceTree = "<group>"; };
-		EB4FA9DB26CC295F0093C320 /* InitialCoverPageConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialCoverPageConfigurator.swift; sourceTree = "<group>"; };
+		EB4FA9DB26CC295F0093C320 /* InitialCoverPageModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialCoverPageModuleBuilder.swift; sourceTree = "<group>"; };
 		EB4FA9DD26CC29710093C320 /* InitialCoverPagePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialCoverPagePresenter.swift; sourceTree = "<group>"; };
 		EB4FA9DF26CC29870093C320 /* InitialCoverPageInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialCoverPageInteractor.swift; sourceTree = "<group>"; };
 		EB4FA9E126CC29A10093C320 /* InitialCoverPageRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialCoverPageRouter.swift; sourceTree = "<group>"; };
@@ -161,7 +171,7 @@
 		EBF0BF06269090C1000FA1E8 /* UserGroupsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGroupsListViewController.swift; sourceTree = "<group>"; };
 		EBF66760269757B3001D5511 /* ServiceSaverReaderDb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceSaverReaderDb.swift; sourceTree = "<group>"; };
 		EBF76A7726CCE2C600DD4F8B /* VKLoginPageContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKLoginPageContentViewController.swift; sourceTree = "<group>"; };
-		EBF76A7926CCE37F00DD4F8B /* VKLoginPageContentConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKLoginPageContentConfigurator.swift; sourceTree = "<group>"; };
+		EBF76A7926CCE37F00DD4F8B /* VKLoginPageContentModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKLoginPageContentModuleBuilder.swift; sourceTree = "<group>"; };
 		EBF76A7B26CCE3CC00DD4F8B /* VKLoginPageContentPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKLoginPageContentPresenter.swift; sourceTree = "<group>"; };
 		EBF76A7D26CCE3E400DD4F8B /* VKLoginPageContentInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKLoginPageContentInteractor.swift; sourceTree = "<group>"; };
 		EBF76A7F26CCE40600DD4F8B /* VKLoginPageContentRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKLoginPageContentRouter.swift; sourceTree = "<group>"; };
@@ -250,6 +260,23 @@
 			path = "NewsFeedTape - module";
 			sourceTree = "<group>";
 		};
+		EB46571F28437E7F00B6FD2F /* DB */ = {
+			isa = PBXGroup;
+			children = (
+				EB46572028437E9700B6FD2F /* RealmDBService.swift */,
+				EB465722284383AA00B6FD2F /* RealmDBService + UserToken.swift */,
+			);
+			path = DB;
+			sourceTree = "<group>";
+		};
+		EB465724284384C200B6FD2F /* RealmObjects */ = {
+			isa = PBXGroup;
+			children = (
+				EB4657252843854A00B6FD2F /* RmUserAuthData.swift */,
+			);
+			path = RealmObjects;
+			sourceTree = "<group>";
+		};
 		EB4F988926C6ACA8004D37CF /* FriendsList - module */ = {
 			isa = PBXGroup;
 			children = (
@@ -266,7 +293,7 @@
 			isa = PBXGroup;
 			children = (
 				EBF007052693A0D9003A3B3B /* InitialCoverPageViewController.swift */,
-				EB4FA9DB26CC295F0093C320 /* InitialCoverPageConfigurator.swift */,
+				EB4FA9DB26CC295F0093C320 /* InitialCoverPageModuleBuilder.swift */,
 				EB4FA9DD26CC29710093C320 /* InitialCoverPagePresenter.swift */,
 				EB4FA9DF26CC29870093C320 /* InitialCoverPageInteractor.swift */,
 				EB4FA9E126CC29A10093C320 /* InitialCoverPageRouter.swift */,
@@ -314,6 +341,7 @@
 		EB7799E426A76AC1006DD54F /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				EB46571F28437E7F00B6FD2F /* DB */,
 				EBF76A8126CD00C700DD4F8B /* ServiceInitialURLRequester.swift */,
 				EBEABAD3268AEB610087BCA5 /* ServiceAPI.swift */,
 				EB19133E26C974E70012158A /* ServiceImageLoader.swift */,
@@ -327,6 +355,7 @@
 			isa = PBXGroup;
 			children = (
 				EB7CE15B2842121800BF6A15 /* UIImages+Extension.swift */,
+				EB46572928439C9B00B6FD2F /* ErrorsDomains.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -432,6 +461,7 @@
 		EBC810E52681014F0021CDE6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				EB465724284384C200B6FD2F /* RealmObjects */,
 				EB32B79C26D3B99400A1ECD2 /* NewsFeed */,
 				EBC810E6268101810021CDE6 /* Session.swift */,
 				EBF0BF01269067D8000FA1E8 /* Friends.swift */,
@@ -439,6 +469,7 @@
 				EBAE927D26962E3600F77130 /* FriendPhotos.swift */,
 				EB692BF9268EE23E0070636D /* Groups.swift */,
 				EBAE927F26962ECB00F77130 /* GroupPhotos.swift */,
+				EB46572728438B9E00B6FD2F /* UserAuthData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -465,7 +496,7 @@
 			isa = PBXGroup;
 			children = (
 				EB2F1AEB26CED225007A62D1 /* TrialVKLoginViewController.swift */,
-				EBF76A7926CCE37F00DD4F8B /* VKLoginPageContentConfigurator.swift */,
+				EBF76A7926CCE37F00DD4F8B /* VKLoginPageContentModuleBuilder.swift */,
 				EBF76A7B26CCE3CC00DD4F8B /* VKLoginPageContentPresenter.swift */,
 				EBF76A7D26CCE3E400DD4F8B /* VKLoginPageContentInteractor.swift */,
 				EBF76A7F26CCE40600DD4F8B /* VKLoginPageContentRouter.swift */,
@@ -593,15 +624,18 @@
 				EBF007062693A0D9003A3B3B /* InitialCoverPageViewController.swift in Sources */,
 				EBAA11F926CFD9140085A1A1 /* UserProfileModuleBuilder.swift in Sources */,
 				EBAE927E26962E3600F77130 /* FriendPhotos.swift in Sources */,
+				EB4657262843854A00B6FD2F /* RmUserAuthData.swift in Sources */,
 				EB2765A1268644BD00C060EC /* VKLoginPageViewController.swift in Sources */,
 				EB66A3EB26B1B70500BC9B7D /* NewsFeedViewController.swift in Sources */,
 				EBF76A7826CCE2C600DD4F8B /* VKLoginPageContentViewController.swift in Sources */,
 				EBAA11F726CFD8D50085A1A1 /* UserProfileViewController.swift in Sources */,
+				EB46572828438B9E00B6FD2F /* UserAuthData.swift in Sources */,
 				EB1EEC6B268C3CC40083477D /* MainPageViewController.swift in Sources */,
 				EB7CE163284217AB00BF6A15 /* MainTabBarInteractor.swift in Sources */,
 				EB7CE15F2842178D00BF6A15 /* MainTabBarViewController.swift in Sources */,
-				EB4FA9DC26CC295F0093C320 /* InitialCoverPageConfigurator.swift in Sources */,
-				EBF76A7A26CCE37F00DD4F8B /* VKLoginPageContentConfigurator.swift in Sources */,
+				EB4FA9DC26CC295F0093C320 /* InitialCoverPageModuleBuilder.swift in Sources */,
+				EB46572A28439C9B00B6FD2F /* ErrorsDomains.swift in Sources */,
+				EBF76A7A26CCE37F00DD4F8B /* VKLoginPageContentModuleBuilder.swift in Sources */,
 				EB371E7F26DBA4C700E28B61 /* NewsFeedOwnerCommentCell.swift in Sources */,
 				EB7CE15C2842121800BF6A15 /* UIImages+Extension.swift in Sources */,
 				EBAA11FB26CFD9270085A1A1 /* UserProfilePresenter.swift in Sources */,
@@ -618,6 +652,7 @@
 				EB7CE16F28421C6F00BF6A15 /* NewsFeedTapeInteractor.swift in Sources */,
 				EB371E8326DBA59500E28B61 /* NewsFeedFeedbackCell.swift in Sources */,
 				EB19133F26C974E70012158A /* ServiceImageLoader.swift in Sources */,
+				EB465723284383AA00B6FD2F /* RealmDBService + UserToken.swift in Sources */,
 				EB7CE17328421C8B00BF6A15 /* NewsFeedTapeModuleBuilder.swift in Sources */,
 				EB7CE1612842179D00BF6A15 /* MainTabBarPresenter.swift in Sources */,
 				EB4F989126C6AE4F004D37CF /* FriendsListInteractor.swift in Sources */,
@@ -659,6 +694,7 @@
 				EB2F1AE626CEC634007A62D1 /* VKLoginPageViews.swift in Sources */,
 				EBF76A8026CCE40600DD4F8B /* VKLoginPageContentRouter.swift in Sources */,
 				EBE603CE26A7E6330065BDD5 /* Data+PrettyJson.swift in Sources */,
+				EB46572128437E9700B6FD2F /* RealmDBService.swift in Sources */,
 				EB2F1AEC26CED225007A62D1 /* TrialVKLoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -17,13 +17,11 @@ protocol InitialCoverPageRouterProtocol {
 
 class InitialCoverPageRouter: InitialCoverPageRouterProtocol {
     
-    weak var view: InitialCoverPageViewController?
-    
-    init(view: InitialCoverPageViewController) {
-        self.view = view
-    }
+    weak var vc: InitialCoverPageViewController?
     
     func moveToLoginScreen() {
-        view?.performSegue(withIdentifier: "ToVKLoginScreenUpdated", sender: nil)
+//        view?.performSegue(withIdentifier: "ToVKLoginScreenUpdated", sender: nil)
+        
+        view?.present(<#T##viewControllerToPresent: UIViewController##UIViewController#>, animated: true, completion: nil)
     }
 }

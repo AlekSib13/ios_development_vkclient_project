@@ -9,25 +9,27 @@ import Foundation
 
 
 protocol InitialCoverPagePresenterProtocol: AnyObject {
-    var view: InitialCoverPageViewControllerProtocol? {get}
-    var interactor: InitialCoverPageInteractorProtocol! {get set}
-    var router: InitialCoverPageRouterProtocol! {get set}
-    
     func moveToLoginScreen() -> Void
+    func loadingStarted()
 }
 
 
 class InitialCoverPagePresenter: InitialCoverPagePresenterProtocol {
     
-    weak var view: InitialCoverPageViewControllerProtocol?
-    var interactor: InitialCoverPageInteractorProtocol!
-    var router: InitialCoverPageRouterProtocol!
+    var interactor: InitialCoverPageInteractorProtocol
+    var router: InitialCoverPageRouterProtocol
+    weak var vc: InitialCoverPageViewControllerProtocol?
     
-    init(view: InitialCoverPageViewControllerProtocol) {
-        self.view = view
+    init(interactor: InitialCoverPageInteractorProtocol, router: InitialCoverPageRouterProtocol) {
+        self.interactor = interactor
+        self.router = router
     }
     
     func moveToLoginScreen() {
         router.moveToLoginScreen()
+    }
+    
+    func loadingStarted() {
+        vc?.launchLoader()
     }
 }

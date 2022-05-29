@@ -47,7 +47,6 @@ protocol ServiceVKAPIExtendedProtocol {
     
     func getUserFriends(completion: @escaping ([Friend]) -> Void) -> Void
     func getUserGroups(completion: @escaping ([Group]) -> Void) -> Void
-//    func getNewsFeed(completion: @escaping ([News]) -> Void) -> Void
     func getNewsFeed(fetchedFromDateTime: Int?, completion: @escaping ([News]) -> Void) -> Void
     
     
@@ -115,24 +114,6 @@ class ServiceVKAPIExtended: ServiceVKAPIExtendedProtocol {
     }
     
     
-//    func getNewsFeed(completion: @escaping ([News]) -> Void) -> Void {
-//        let method = ApiMethods.getNewsFeed.rawValue
-//        let url = schema + host + path + method
-//        fields = "post"
-//
-//
-//        let params: Parameters = ["user_id": userId, "access_token": token, "v": version]
-//
-//        apiQueue.async() {
-//            AF.request(url, method: .get, parameters: params).responseData{dataResponse in
-//                guard let data = dataResponse.data else {return}
-//                guard let items = JSON(data).response.items.array else {return}
-//
-//                let news: [News] = items.map{News(dataJSON: $0)}
-//                completion(news)
-//            }
-//        }
-//    }
     
     func getNewsFeed(fetchedFromDateTime: Int?, completion: @escaping ([News]) -> Void) -> Void {
         let method = ApiMethods.getNewsFeed.rawValue

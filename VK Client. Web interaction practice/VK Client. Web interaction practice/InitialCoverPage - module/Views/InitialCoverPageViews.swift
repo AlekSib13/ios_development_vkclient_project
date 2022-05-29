@@ -11,6 +11,17 @@ import SnapKit
 
 class InitialCoverPageInfoView: UIView, ViewProtocol {
     
+    
+    struct SizeConstants {
+        static let sizeOf100: CGFloat = 100
+    }
+    
+    struct OffsetConstants {
+        static let offsetOf15: CGFloat = 15
+        static let offsetOf30: CGFloat = 30
+        static let offsetOf250: CGFloat = 250
+    }
+    
     private var vkLabel: UILabel = {
        let vkLabel = UILabel()
         vkLabel.text = "VK"
@@ -27,10 +38,16 @@ class InitialCoverPageInfoView: UIView, ViewProtocol {
         return mobileClient
     }()
     
-    private lazy var infoStack: UIStackView = {
+    private var infoStack: UIStackView = {
         let infoStack = UIStackView()
         infoStack.axis = .vertical
         return infoStack
+    }()
+    
+    private let loader: UIActivityIndicatorView = {
+       let loader = UIActivityIndicatorView()
+        loader.color = .white
+        return loader
     }()
     
     override init(frame: CGRect) {
@@ -50,25 +67,38 @@ class InitialCoverPageInfoView: UIView, ViewProtocol {
         addSubview(infoStack)
         infoStack.addSubview(vkLabel)
         infoStack.addSubview(mobileClient)
+        addSubview(loader)
     }
     
+    
     func setConstraints() {
-        infoStack.snp.makeConstraints{make in
-            make.top.equalToSuperview().inset(250)
+        infoStack.snp.makeConstraints {make in
+            make.top.equalToSuperview().inset(OffsetConstants.offsetOf250)
             make.centerX.equalToSuperview()
-            
         }
         
-        vkLabel.snp.makeConstraints{make in
-            make.size.equalTo(100)
-            make.centerX.equalToSuperview().inset(15)
+        vkLabel.snp.makeConstraints {make in
+            make.size.equalTo(SizeConstants.sizeOf100)
+            make.centerX.equalToSuperview().inset(OffsetConstants.offsetOf15)
         }
         
-        mobileClient.snp.makeConstraints{make in
-            make.top.equalTo(vkLabel.snp.bottom).offset(15)
+        mobileClient.snp.makeConstraints {make in
+            make.top.equalTo(vkLabel.snp.bottom).offset(OffsetConstants.offsetOf15)
             make.center.equalToSuperview()
         }
         
-        
+        loader.snp.makeConstraints {make in
+            make.top.equalTo(infoStack.snp.bottom).inset(OffsetConstants.offsetOf30)
+            make.centerX.equalToSuperview()
+        }
+    }
+    
+    
+    func startLoaderAnimation() {
+        loader.startAnimating()
+    }
+    
+    func stopLoaderAnimation() {
+        loader.stopAnimating()
     }
 }
