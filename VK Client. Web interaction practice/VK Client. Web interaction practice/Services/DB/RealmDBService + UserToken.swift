@@ -31,6 +31,7 @@ extension RealmDBManagerService: UserAuthDataRealmDBManagerProtocol {
         threadSecondary.start()
     }
     
+    
     func readUserAuthData(userCredentials: UserAuthData?, callback: @escaping (Result<UserAuthData, Error>) -> Void) {
         DispatchQueue.global().async {[weak self] in
             guard let self = self else {return}

@@ -11,48 +11,44 @@ import WebKit
 
 
 protocol VKLoginPageContentPresenterProtocol: AnyObject  {
-    var view: VKLoginPageContentViewControllerProtocol? {get}
-    var interactor: VKLoginPageContentInteractorProtocol! {get set}
-    var router: VKLoginPageContentRouterProtocol! {get set}
-    
-    func fetchUserAuthData(urlFragment: String) -> Void
-    func fetchContent(webView: WKWebView) -> Void
-    
-    func moveToUserLoginScreen() -> Void
+    func getTransitionURL() -> URLRequest
+    func authDataToHandle(url: String)
 }
 
 class VKLoginPageContentPresenter: VKLoginPageContentPresenterProtocol {
-    weak var view: VKLoginPageContentViewControllerProtocol?
-    var interactor: VKLoginPageContentInteractorProtocol!
-    var router: VKLoginPageContentRouterProtocol!
+  
+    weak var vc: VKLoginPageContentViewControllerProtocol?
+    var interactor: VKLoginPageContentInteractorProtocol
+    var router: VKLoginPageContentRouterProtocol
     
-    init(view: VKLoginPageContentViewControllerProtocol) {
-        self.view = view
+    init(interactor: VKLoginPageContentInteractorProtocol, router: VKLoginPageContentRouterProtocol) {
+        self.interactor = interactor
+        self.router = router
     }
     
-    func fetchContent(webView: WKWebView) {
-        interactor.makeURLRequestForUserAuthData(webView: webView)
+    
+    func getTransitionURL() -> URLRequest {
+        interactor.url
     }
     
-    func fetchUserAuthData(urlFragment: String) {
-        let params = urlFragment.components(separatedBy: "&").map{$0.components(separatedBy: "=")}.reduce([String:String]()){empty_dict,param in
-            var dict = empty_dict
-            let key = param[0]
-            let value = param[1]
-            dict[key] = value
-            return dict
+    
+    func authDataToHandle(url: String) {
+        
+        guard let startindex = url.firstIndex(of: "#") else {return}
+        let credentials = url[ url.index(after: startindex)...]
+        let elementsOfCredentials = credentials.split(separator: "&")
+        guard let tokenStr = elementsOfCredentials.first, let userIdStr = elementsOfCredentials.last else {
+            return
         }
-
-        let token = params["access_token"]
-        let userid = params["user_id"]
         
-        if let tokenString = token, let useridString = userid {
-            interactor.saveUserAuthData(receivedUserId: useridString, receivedToken: tokenString)}
+        let tokenArr = tokenStr.split(separator: "=")
+        let userIdArr = userIdStr.split(separator: "=")
         
-        moveToUserLoginScreen()
-    }
-    
-    func moveToUserLoginScreen() {
-        router.moveToUserLoginScreen()
+        guard let tokenValue = tokenArr.last, let userIdValue = userIdArr.last else {return}
+        
+        let user = UserAuthData(userName: "defaultUser", userPassword: "no password", userId: String(userIdValue), userToken: String(tokenValue))
+        
+        interactor.saveCredentials(of: user)
+        router.moveToMainMenu(for: user)
     }
 }

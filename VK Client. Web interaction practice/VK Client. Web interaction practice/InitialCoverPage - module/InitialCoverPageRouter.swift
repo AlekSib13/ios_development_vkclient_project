@@ -9,19 +9,24 @@ import Foundation
 
 
 protocol InitialCoverPageRouterProtocol {
-    var view: InitialCoverPageViewController? {get}
-    
-    func moveToLoginScreen() -> Void
+    func moveToLoginScreen()
+    func moveToMainMenu(userData: UserAuthData)
 }
 
 
 class InitialCoverPageRouter: InitialCoverPageRouterProtocol {
-    
-    weak var vc: InitialCoverPageViewController?
+
+    weak var vc: InitialCoverPageViewControllerProtocol?
     
     func moveToLoginScreen() {
-//        view?.performSegue(withIdentifier: "ToVKLoginScreenUpdated", sender: nil)
-        
-        view?.present(<#T##viewControllerToPresent: UIViewController##UIViewController#>, animated: true, completion: nil)
+        guard let currentVC = vc as? InitialCoverPageViewController else { return }
+        let newVC = VKLoginPageContentModuleBuilder.build()
+        currentVC.present(newVC, animated: true, completion: nil)
+    }
+    
+    func moveToMainMenu(userData: UserAuthData) {
+        guard let currentVC = vc as? InitialCoverPageViewController else { return }
+        let newVC = MainTabBarModuleBuilder.build(user: userData)
+        currentVC.view.window?.rootViewController = newVC
     }
 }

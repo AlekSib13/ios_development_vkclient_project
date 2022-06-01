@@ -35,4 +35,8 @@ class RealmDBManager {
 }
 
 
-class RealmDBManagerService: BaseRealm {}
+class RealmDBManagerService: BaseRealm {
+    static let instance = RealmDBManagerService()
+    
+    private init(){}
+}

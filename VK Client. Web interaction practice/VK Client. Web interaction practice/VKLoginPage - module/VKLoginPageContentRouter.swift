@@ -7,23 +7,19 @@
 
 import Foundation
 
-
 protocol VKLoginPageContentRouterProtocol {
-    var view: VKLoginViewControllerProgrammaticallyMadeLayout! {get set}
-    func moveToUserLoginScreen() -> Void
+    func moveToMainMenu(for user: UserAuthData)
 
 }
 
 class VKLoginPageContentRouter: VKLoginPageContentRouterProtocol {
-    weak var view: VKLoginViewControllerProgrammaticallyMadeLayout!
+    
+    weak var vc: VKLoginPageContentViewControllerProtocol?
 
-    init(view: VKLoginViewControllerProgrammaticallyMadeLayout) {
-        self.view = view
-    }
-
-    func moveToUserLoginScreen() {
-        let vc = MainTabBarModuleBuilder.build()
-        view.view.window?.rootViewController = vc
+    func moveToMainMenu(for user: UserAuthData) {
+        guard let currentVC = vc as? VKLoginPageContentViewController else {return}
+        let nextVC = MainTabBarModuleBuilder.build(user: user)
+        currentVC.view.window?.rootViewController = nextVC
     }
 }
 

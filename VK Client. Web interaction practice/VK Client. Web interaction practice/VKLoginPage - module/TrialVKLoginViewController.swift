@@ -7,44 +7,70 @@
 
 import UIKit
 import WebKit
+import SnapKit
 
 
 protocol VKLoginPageContentViewControllerProtocol: AnyObject {
-    var configurator: VKLoginPageContentConfigurfatorProtocol {get}
-    var presenter: VKLoginPageContentPresenterProtocol! {get set}
-    
 }
 
 
-class VKLoginViewControllerProgrammaticallyMadeLayout: UIViewController, VKLoginPageContentViewControllerProtocol {
+class VKLoginPageContentViewController: UIViewController, VKLoginPageContentViewControllerProtocol, WKNavigationDelegate {
 
-    var configurator: VKLoginPageContentConfigurfatorProtocol = VKLoginPageContentConfigurfator()
-    var presenter: VKLoginPageContentPresenterProtocol!
-    var webViewContainer = VKLoginPageView()
-    var webView: WKWebView!
+    var presenter: VKLoginPageContentPresenterProtocol?
+
+    var webView: WKWebView = {
+        let webView = WKWebView()
+        return webView
+    }()
+    
+    
+    init(presenter: VKLoginPageContentPresenterProtocol) {
+        self.presenter = presenter
+        super.init(nibName: nil, bundle: nil)
+        
+    }
+    
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addSubview(webViewContainer)
-        webView = webViewContainer.returnWebView()
+        configureView()
+        setConstraints()
+        start()
+    }
+    
+    
+    func configureView() {
+        view.addSubview(webView)
         webView.navigationDelegate = self
-        configurator.configure(with: self)
-        presenter.fetchContent(webView: webView)
+    }
+    
+    
+    func setConstraints() {
+        webView.snp.makeConstraints {make in
+            make.edges.equalToSuperview()
+        }
+    }
+    
+    func start() {
+        guard let urlRequest = presenter?.getTransitionURL() else {return}
+        webView.load(urlRequest)
+    }
+    
+    
+    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+        decisionHandler(.allow)
+    }
+    
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        if let url = webView.url?.description, !url.contains("redirect") {
+            presenter?.authDataToHandle(url: url)
+        }
     }
 }
 
-
-extension VKLoginViewControllerProgrammaticallyMadeLayout: WKNavigationDelegate {
-    func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
-        
-        guard let url = navigationResponse.response.url, url.path == "/blank.html", let fragment = url.fragment else {
-            decisionHandler(.allow)
-//            presenter.moveToUserLoginScreen()
-            return}
-        
-        print("this is url: \(fragment)")
-        
-        presenter.fetchUserAuthData(urlFragment: fragment)
-        decisionHandler(.cancel)
-    }
-}

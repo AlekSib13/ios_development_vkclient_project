@@ -28,6 +28,6 @@ class RmUserAuthData: Object {
     }
     
     override static func primaryKey() -> String? {
-        "userId"
+        "userName"
     }
 }

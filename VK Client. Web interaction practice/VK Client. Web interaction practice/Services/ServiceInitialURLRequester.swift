@@ -26,7 +26,7 @@ class VKInitialURLRequest: VKInitialURLRequestProtocol {
             URLQueryItem(name: "client_id", value: "7888664"),
             URLQueryItem(name: "display", value: "mobile"),
             URLQueryItem(name: "redirect_uri", value: "https://oauth.vk.com/blank.html"),
-            URLQueryItem(name: "scope", value: "offline,friends,photos,groups,notes,wall"),
+            URLQueryItem(name: "scope", value: "offline,friends,photos,groups,notes,wall,newsfeed"),
             URLQueryItem(name: "response_type", value: "token"),
             URLQueryItem(name: "v", value: "5.131")]
         
