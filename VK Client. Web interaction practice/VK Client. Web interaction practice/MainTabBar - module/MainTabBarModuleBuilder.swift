@@ -10,7 +10,7 @@ import Foundation
 
 class MainTabBarModuleBuilder {
     
-    static func build() -> MainTabBarViewController {
+    static func build(user: UserAuthData) -> MainTabBarViewController {
         
         let router = MainTabBarRouter()
         let interactor = MainTabBarInteractor()

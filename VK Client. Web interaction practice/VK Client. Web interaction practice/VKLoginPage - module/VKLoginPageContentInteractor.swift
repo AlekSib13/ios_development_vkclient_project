@@ -9,34 +9,26 @@ import Foundation
 import WebKit
 
 protocol VKLoginPageContentInteractorProtocol {
-    var presenter: VKLoginPageContentPresenterProtocol! {get set}
-    var initialUrlWorker: VKInitialURLRequestProtocol {get}
-    var realmDBWorker: ServiceDBRealmWritingReading {get}
-    
-    func makeURLRequestForUserAuthData(webView: WKWebView) -> Void
-    func saveUserAuthData(receivedUserId userId: String, receivedToken token: String) -> Void
+    var url: URLRequest {get}
+    func saveCredentials(of user: UserAuthData)
 }
 
 class VKLoginPageContentInteractor: VKLoginPageContentInteractorProtocol {
-    weak var presenter: VKLoginPageContentPresenterProtocol!
-    var apiWorker: ServiceVKAPIExtendedProtocol = ServiceVKAPIExtended()
-    var initialUrlWorker: VKInitialURLRequestProtocol = VKInitialURLRequest()
-    var realmDBWorker: ServiceDBRealmWritingReading = ServiceDBRealm()
-    
-    
-    init(presenter: VKLoginPageContentPresenterProtocol) {
-        self.presenter = presenter
+   
+    weak var presenter: VKLoginPageContentPresenterProtocol?
+    let manager: AuthManagerProtocol
+    var url: URLRequest {
+        manager.getAuthUrl()
     }
     
-    func makeURLRequestForUserAuthData(webView: WKWebView) {
-        initialUrlWorker.makeUrlRequest(webView: webView)
+    
+    init(manager: AuthManagerProtocol) {
+        self.manager = manager
     }
     
-    func saveUserAuthData(receivedUserId userId: String, receivedToken token: String) -> Void {
-        let user = User(dataJSON: nil, userId: userId, tokenId: token)
-        Singleton.shared.userId = userId
-        Singleton.shared.token = token
-        realmDBWorker.temporaryFuncWriteToDB(userAuthData: user)
+    
+    func saveCredentials(of user: UserAuthData) {
+        manager.writeUserAuthData(userCredentials: user)
     }
     
 }

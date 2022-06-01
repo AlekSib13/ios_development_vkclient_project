@@ -12,7 +12,7 @@ class InitialCoverPageModuleBuilder {
 
     static func build() -> InitialCoverPageViewController {
         let router = InitialCoverPageRouter()
-        let interactor = InitialCoverPageInteractor(dbService: RealmDBManagerService())
+        let interactor = InitialCoverPageInteractor(manager: AuthManager(rest: RestAPI.instance, dbManager: RealmDBManagerService.instance))
         let presenter = InitialCoverPagePresenter(interactor: interactor, router: router)
         let vc = InitialCoverPageViewController(presenter: presenter)
         

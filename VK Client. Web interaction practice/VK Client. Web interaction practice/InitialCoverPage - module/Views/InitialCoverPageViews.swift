@@ -19,6 +19,8 @@ class InitialCoverPageInfoView: UIView, ViewProtocol {
     struct OffsetConstants {
         static let offsetOf15: CGFloat = 15
         static let offsetOf30: CGFloat = 30
+        static let offsetOf50: CGFloat = 50
+        static let offsetOf60: CGFloat = 60
         static let offsetOf250: CGFloat = 250
     }
     
@@ -47,6 +49,7 @@ class InitialCoverPageInfoView: UIView, ViewProtocol {
     private let loader: UIActivityIndicatorView = {
        let loader = UIActivityIndicatorView()
         loader.color = .white
+        loader.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
         return loader
     }()
     
@@ -88,7 +91,7 @@ class InitialCoverPageInfoView: UIView, ViewProtocol {
         }
         
         loader.snp.makeConstraints {make in
-            make.top.equalTo(infoStack.snp.bottom).inset(OffsetConstants.offsetOf30)
+            make.top.equalTo(infoStack.snp.bottom).offset(OffsetConstants.offsetOf50)
             make.centerX.equalToSuperview()
         }
     }

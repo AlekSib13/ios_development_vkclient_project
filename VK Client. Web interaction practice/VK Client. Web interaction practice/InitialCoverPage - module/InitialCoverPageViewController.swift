@@ -10,6 +10,7 @@ import SnapKit
 
 protocol InitialCoverPageViewControllerProtocol: AnyObject {
     func launchLoader()
+    func stopLoader()
 }
 
 class InitialCoverPageViewController: UIViewController, InitialCoverPageViewControllerProtocol {
@@ -37,6 +38,17 @@ class InitialCoverPageViewController: UIViewController, InitialCoverPageViewCont
     }
     
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        launchLoader()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        stopLoader()
+    }
+    
+    
     func configureView() {
         view.addSubview(infoView)
     }
@@ -51,5 +63,10 @@ class InitialCoverPageViewController: UIViewController, InitialCoverPageViewCont
     
     func launchLoader() {
         infoView.startLoaderAnimation()
+    }
+    
+    
+    func stopLoader() {
+        infoView.stopLoaderAnimation()
     }
 }

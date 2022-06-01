@@ -9,8 +9,9 @@ import Foundation
 
 
 protocol InitialCoverPagePresenterProtocol: AnyObject {
-    func moveToLoginScreen() -> Void
+    func moveToLoginScreen()
     func loadingStarted()
+    func useUserAuthData(userData: UserAuthData?)
 }
 
 
@@ -25,11 +26,23 @@ class InitialCoverPagePresenter: InitialCoverPagePresenterProtocol {
         self.router = router
     }
     
+    
     func moveToLoginScreen() {
         router.moveToLoginScreen()
     }
     
+    
     func loadingStarted() {
         vc?.launchLoader()
+    }
+    
+    
+    func useUserAuthData(userData: UserAuthData?) {
+        vc?.stopLoader()
+        guard let userData = userData else {
+            router.moveToLoginScreen()
+            return
+        }
+        router.moveToMainMenu(userData: userData)
     }
 }

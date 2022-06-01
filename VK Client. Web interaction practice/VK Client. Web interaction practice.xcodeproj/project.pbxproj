@@ -28,6 +28,7 @@
 		EB4657262843854A00B6FD2F /* RmUserAuthData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4657252843854A00B6FD2F /* RmUserAuthData.swift */; };
 		EB46572828438B9E00B6FD2F /* UserAuthData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB46572728438B9E00B6FD2F /* UserAuthData.swift */; };
 		EB46572A28439C9B00B6FD2F /* ErrorsDomains.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB46572928439C9B00B6FD2F /* ErrorsDomains.swift */; };
+		EB4657C02847DCF900458F1D /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4657BF2847DCF900458F1D /* AuthManager.swift */; };
 		EB4F988D26C6AD32004D37CF /* FriendsListModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F988C26C6AD32004D37CF /* FriendsListModuleBuilder.swift */; };
 		EB4F988F26C6ADDD004D37CF /* FriendsListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F988E26C6ADDD004D37CF /* FriendsListPresenter.swift */; };
 		EB4F989126C6AE4F004D37CF /* FriendsListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F989026C6AE4F004D37CF /* FriendsListInteractor.swift */; };
@@ -58,6 +59,8 @@
 		EB7CE16F28421C6F00BF6A15 /* NewsFeedTapeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7CE16E28421C6F00BF6A15 /* NewsFeedTapeInteractor.swift */; };
 		EB7CE17128421C7D00BF6A15 /* NewsFeedTapeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7CE17028421C7D00BF6A15 /* NewsFeedTapeRouter.swift */; };
 		EB7CE17328421C8B00BF6A15 /* NewsFeedTapeModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7CE17228421C8B00BF6A15 /* NewsFeedTapeModuleBuilder.swift */; };
+		EB8189E928456FD600FC2EA2 /* RestAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8189E828456FD600FC2EA2 /* RestAPI.swift */; };
+		EB8189EB2845704B00FC2EA2 /* RestAPI + Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8189EA2845704B00FC2EA2 /* RestAPI + Auth.swift */; };
 		EB932EBF2691971A00382D14 /* FriendsListAndGroupsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB932EBD2691971A00382D14 /* FriendsListAndGroupsListTableViewCell.swift */; };
 		EB932EC02691971A00382D14 /* FriendsListAndGroupsListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB932EBE2691971A00382D14 /* FriendsListAndGroupsListTableViewCell.xib */; };
 		EBAA11F426CF9F6B0085A1A1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAA11F326CF9F6B0085A1A1 /* User.swift */; };
@@ -71,7 +74,6 @@
 		EBAE928026962ECB00F77130 /* GroupPhotos.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAE927F26962ECB00F77130 /* GroupPhotos.swift */; };
 		EBC810D22680FF1A0021CDE6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC810D12680FF1A0021CDE6 /* AppDelegate.swift */; };
 		EBC810D42680FF1A0021CDE6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC810D32680FF1A0021CDE6 /* SceneDelegate.swift */; };
-		EBC810D92680FF1A0021CDE6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBC810D72680FF1A0021CDE6 /* Main.storyboard */; };
 		EBC810DB2680FF1E0021CDE6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBC810DA2680FF1E0021CDE6 /* Assets.xcassets */; };
 		EBC810DE2680FF1E0021CDE6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBC810DC2680FF1E0021CDE6 /* LaunchScreen.storyboard */; };
 		EBC810E7268101810021CDE6 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC810E6268101810021CDE6 /* Session.swift */; };
@@ -114,6 +116,7 @@
 		EB4657252843854A00B6FD2F /* RmUserAuthData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RmUserAuthData.swift; sourceTree = "<group>"; };
 		EB46572728438B9E00B6FD2F /* UserAuthData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthData.swift; sourceTree = "<group>"; };
 		EB46572928439C9B00B6FD2F /* ErrorsDomains.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorsDomains.swift; sourceTree = "<group>"; };
+		EB4657BF2847DCF900458F1D /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		EB4F988C26C6AD32004D37CF /* FriendsListModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListModuleBuilder.swift; sourceTree = "<group>"; };
 		EB4F988E26C6ADDD004D37CF /* FriendsListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListPresenter.swift; sourceTree = "<group>"; };
 		EB4F989026C6AE4F004D37CF /* FriendsListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListInteractor.swift; sourceTree = "<group>"; };
@@ -144,6 +147,8 @@
 		EB7CE16E28421C6F00BF6A15 /* NewsFeedTapeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedTapeInteractor.swift; sourceTree = "<group>"; };
 		EB7CE17028421C7D00BF6A15 /* NewsFeedTapeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedTapeRouter.swift; sourceTree = "<group>"; };
 		EB7CE17228421C8B00BF6A15 /* NewsFeedTapeModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedTapeModuleBuilder.swift; sourceTree = "<group>"; };
+		EB8189E828456FD600FC2EA2 /* RestAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestAPI.swift; sourceTree = "<group>"; };
+		EB8189EA2845704B00FC2EA2 /* RestAPI + Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RestAPI + Auth.swift"; sourceTree = "<group>"; };
 		EB932EBD2691971A00382D14 /* FriendsListAndGroupsListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListAndGroupsListTableViewCell.swift; sourceTree = "<group>"; };
 		EB932EBE2691971A00382D14 /* FriendsListAndGroupsListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendsListAndGroupsListTableViewCell.xib; sourceTree = "<group>"; };
 		EBAA11F326CF9F6B0085A1A1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -158,7 +163,6 @@
 		EBC810CE2680FF1A0021CDE6 /* VK Client. Web interaction practice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VK Client. Web interaction practice.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBC810D12680FF1A0021CDE6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EBC810D32680FF1A0021CDE6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		EBC810D82680FF1A0021CDE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EBC810DA2680FF1E0021CDE6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EBC810DD2680FF1E0021CDE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EBC810DF2680FF1E0021CDE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -297,6 +301,7 @@
 				EB4FA9DD26CC29710093C320 /* InitialCoverPagePresenter.swift */,
 				EB4FA9DF26CC29870093C320 /* InitialCoverPageInteractor.swift */,
 				EB4FA9E126CC29A10093C320 /* InitialCoverPageRouter.swift */,
+				EB4657BF2847DCF900458F1D /* AuthManager.swift */,
 				EB2F1AE426CE2FBF007A62D1 /* Views */,
 			);
 			path = "InitialCoverPage - module";
@@ -341,6 +346,7 @@
 		EB7799E426A76AC1006DD54F /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				EB8189E728456FC400FC2EA2 /* Rest */,
 				EB46571F28437E7F00B6FD2F /* DB */,
 				EBF76A8126CD00C700DD4F8B /* ServiceInitialURLRequester.swift */,
 				EBEABAD3268AEB610087BCA5 /* ServiceAPI.swift */,
@@ -370,6 +376,15 @@
 				EB7CE167284217D200BF6A15 /* MainTabBarModuleBuilder.swift */,
 			);
 			path = "MainTabBar - module";
+			sourceTree = "<group>";
+		};
+		EB8189E728456FC400FC2EA2 /* Rest */ = {
+			isa = PBXGroup;
+			children = (
+				EB8189E828456FD600FC2EA2 /* RestAPI.swift */,
+				EB8189EA2845704B00FC2EA2 /* RestAPI + Auth.swift */,
+			);
+			path = Rest;
 			sourceTree = "<group>";
 		};
 		EB932EBC269196B700382D14 /* Cells */ = {
@@ -447,7 +462,6 @@
 				EBC810D32680FF1A0021CDE6 /* SceneDelegate.swift */,
 				EB932EBC269196B700382D14 /* Cells */,
 				EBC810E52681014F0021CDE6 /* Model */,
-				EBC810D72680FF1A0021CDE6 /* Main.storyboard */,
 				EBE603CC26A7E5F90065BDD5 /* Extensions */,
 				EB7799E426A76AC1006DD54F /* Services */,
 				EBC810DA2680FF1E0021CDE6 /* Assets.xcassets */,
@@ -567,7 +581,6 @@
 				EBC810DE2680FF1E0021CDE6 /* LaunchScreen.storyboard in Resources */,
 				EBC810DB2680FF1E0021CDE6 /* Assets.xcassets in Resources */,
 				EB20C3CB269E9DD300A204E7 /* GoogleService-Info.plist in Resources */,
-				EBC810D92680FF1A0021CDE6 /* Main.storyboard in Resources */,
 				EB932EC02691971A00382D14 /* FriendsListAndGroupsListTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -653,6 +666,7 @@
 				EB371E8326DBA59500E28B61 /* NewsFeedFeedbackCell.swift in Sources */,
 				EB19133F26C974E70012158A /* ServiceImageLoader.swift in Sources */,
 				EB465723284383AA00B6FD2F /* RealmDBService + UserToken.swift in Sources */,
+				EB8189E928456FD600FC2EA2 /* RestAPI.swift in Sources */,
 				EB7CE17328421C8B00BF6A15 /* NewsFeedTapeModuleBuilder.swift in Sources */,
 				EB7CE1612842179D00BF6A15 /* MainTabBarPresenter.swift in Sources */,
 				EB4F989126C6AE4F004D37CF /* FriendsListInteractor.swift in Sources */,
@@ -675,6 +689,7 @@
 				EB6EB8B026CA77910021B4FD /* UserGroupsListPresenter.swift in Sources */,
 				EB32B79B26D3B98200A1ECD2 /* NewsFeedPhotosModel.swift in Sources */,
 				EBC810D22680FF1A0021CDE6 /* AppDelegate.swift in Sources */,
+				EB4657C02847DCF900458F1D /* AuthManager.swift in Sources */,
 				EB7CE17128421C7D00BF6A15 /* NewsFeedTapeRouter.swift in Sources */,
 				EB66A3EF26B1B93400BC9B7D /* NewsFeedPresenter.swift in Sources */,
 				EBC810D42680FF1A0021CDE6 /* SceneDelegate.swift in Sources */,
@@ -690,6 +705,7 @@
 				EB6EB8B626CA78320021B4FD /* UserGroupsListConfigurator.swift in Sources */,
 				EBF66761269757B3001D5511 /* ServiceSaverReaderDb.swift in Sources */,
 				EBAA11FD26CFD93F0085A1A1 /* UserProfileInteractor.swift in Sources */,
+				EB8189EB2845704B00FC2EA2 /* RestAPI + Auth.swift in Sources */,
 				EB6EB8B426CA780E0021B4FD /* UserGroupsListRouter.swift in Sources */,
 				EB2F1AE626CEC634007A62D1 /* VKLoginPageViews.swift in Sources */,
 				EBF76A8026CCE40600DD4F8B /* VKLoginPageContentRouter.swift in Sources */,
@@ -702,14 +718,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		EBC810D72680FF1A0021CDE6 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				EBC810D82680FF1A0021CDE6 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		EBC810DC2680FF1E0021CDE6 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
