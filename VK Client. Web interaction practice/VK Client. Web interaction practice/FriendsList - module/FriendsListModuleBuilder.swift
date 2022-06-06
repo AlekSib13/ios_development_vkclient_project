@@ -8,16 +8,12 @@
 import Foundation
 
 
-class FriendslistModuleBuilder {
+class FriendsListModuleBuilder {
     
-    var presenter: FriendsListPresenterProtocol!
-    var interactor: FriendsListInteractorProtocol!
-    var router: FriendsListRouterProtocol!
-    
-    static func build() -> UserFriendsListViewController {
+    static func build(user: UserAuthData) -> UserFriendsListViewController {
         
         let router = FriendsListRouter()
-        let interactor = FriendsListInteractor()
+        let interactor = FriendsListInteractor(manager: FriendsListManager(rest: RestAPI.instance), user: user)
         let presenter = FriendsListPresenter(interactor: interactor, router: router)
         let vc = UserFriendsListViewController(presenter: presenter)
         

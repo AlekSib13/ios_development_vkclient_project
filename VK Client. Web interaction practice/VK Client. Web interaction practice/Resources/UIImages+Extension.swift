@@ -14,6 +14,7 @@ extension UIImage {
         static let newsFeed = { UIImage(named: "newsFeed") }()
         static let friends = { UIImage(named: "friends") }()
         static let chats = { UIImage(named: "chats") }()
+        static let groups = { UIImage(named: "groups") }()
         static let me = { UIImage(named: "myProfile") }()
     }
 }

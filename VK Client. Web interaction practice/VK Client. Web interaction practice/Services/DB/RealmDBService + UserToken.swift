@@ -8,12 +8,12 @@
 import Foundation
 
 
-protocol UserAuthDataRealmDBManagerProtocol: BaseRealm {
+protocol UserAuthDataDBManagerProtocol: BaseRealm {
     func writeUserAuthData(userData: UserAuthData)
     func readUserAuthData(userCredentials: UserAuthData?, callback: @escaping (Result<UserAuthData, Error>) -> Void)
 }
 
-extension RealmDBManagerService: UserAuthDataRealmDBManagerProtocol {
+extension RealmDBManagerService: UserAuthDataDBManagerProtocol {
   
     func writeUserAuthData(userData: UserAuthData) {
         let threadSecondary = Thread {[weak self] in
