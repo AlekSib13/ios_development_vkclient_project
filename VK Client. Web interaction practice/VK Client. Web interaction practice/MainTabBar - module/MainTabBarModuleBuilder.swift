@@ -15,7 +15,7 @@ class MainTabBarModuleBuilder {
         let router = MainTabBarRouter()
         let interactor = MainTabBarInteractor()
         let presenter = MainTabBarPresenter(interactor: interactor, router: router)
-        let vc = MainTabBarViewController(presenter: presenter)
+        let vc = MainTabBarViewController(presenter: presenter, user: user)
         
         interactor.presenter = presenter
         presenter.vc = vc

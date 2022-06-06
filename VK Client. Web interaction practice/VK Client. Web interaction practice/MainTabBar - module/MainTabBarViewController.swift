@@ -15,17 +15,25 @@ protocol MainTabBarViewControllerProtocol: AnyObject {
 
 class MainTabBarViewController: UITabBarController, MainTabBarViewControllerProtocol {
     
-    
-    let newsFeedNavigationController = UINavigationController(rootViewController: NewsFeedTapeModuleBuilder.build())
-    let friendsNavigationController = UINavigationController(rootViewController: FriendslistModuleBuilder.build())
-    let myProfileNavigationController = UINavigationController(rootViewController: UserProfileModuleBuilder.build())
-    
-    
+    private struct Constants {
+        static let tabBarImageInsets = UIEdgeInsets(top: 10, left: 0, bottom: -10, right: 0)
+    }
     
     let presenter: MainTabBarPresenterProtocol
     
-    init(presenter: MainTabBarPresenterProtocol) {
+    let newsFeedNavigationController: UINavigationController
+    let friendsNavigationController: UINavigationController
+    let groupsNavigationController: UINavigationController
+    let myProfileNavigationController: UINavigationController
+    
+    init(presenter: MainTabBarPresenterProtocol, user: UserAuthData) {
         self.presenter = presenter
+        self.newsFeedNavigationController = UINavigationController(rootViewController: NewsFeedTapeModuleBuilder.build(user: user))
+        self.friendsNavigationController = UINavigationController(rootViewController: FriendsListModuleBuilder.build(user: user))
+        self.groupsNavigationController = UINavigationController(rootViewController: GroupListModuleBuilder.build(user: user))
+        self.myProfileNavigationController =  UINavigationController(rootViewController: UserProfileModuleBuilder.build())
+        
+        
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -42,12 +50,23 @@ class MainTabBarViewController: UITabBarController, MainTabBarViewControllerProt
     
     
     private func configureControllers() {
+        tabBar.backgroundColor = .white.withAlphaComponent(0.4)
+        
         newsFeedNavigationController.tabBarItem = UITabBarItem(title: nil, image: UIImage.MainTabTransitionButtonImages.newsFeed, tag: 0)
+        newsFeedNavigationController.tabBarItem.imageInsets = Constants.tabBarImageInsets
+        
         friendsNavigationController.tabBarItem = UITabBarItem(title: nil, image: UIImage.MainTabTransitionButtonImages.friends, tag: 1)
-        myProfileNavigationController.tabBarItem = UITabBarItem(title: nil, image: UIImage.MainTabTransitionButtonImages.me, tag: 2)
+        friendsNavigationController.tabBarItem.imageInsets = Constants.tabBarImageInsets
+        
+        groupsNavigationController.tabBarItem = UITabBarItem(title: nil, image: UIImage.MainTabTransitionButtonImages.groups, tag: 3)
+        groupsNavigationController.tabBarItem.imageInsets = Constants.tabBarImageInsets
+        
+        myProfileNavigationController.tabBarItem = UITabBarItem(title: nil, image: UIImage.MainTabTransitionButtonImages.me, tag: 3)
+        myProfileNavigationController.tabBarItem.imageInsets = Constants.tabBarImageInsets
         
         viewControllers = [newsFeedNavigationController,
                             friendsNavigationController,
+                            groupsNavigationController,
                             myProfileNavigationController]
     }
 }

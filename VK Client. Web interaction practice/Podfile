@@ -13,6 +13,7 @@ target 'VK Client. Web interaction practice' do
   pod 'DynamicJSON'
   pod 'SnapKit', '~> 4.0'
   pod 'SDWebImage', '~> 5.0'
+  pod 'PromiseKit', '~> 6.8'
 
 
   # Pods for VK Client. Web interaction practice

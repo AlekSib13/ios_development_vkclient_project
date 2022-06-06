@@ -18,9 +18,9 @@ protocol AuthManagerProtocol {
 class AuthManager: AuthManagerProtocol {
     
     let rest: RestAPIAuth
-    let dbManager: UserAuthDataRealmDBManagerProtocol
+    let dbManager: UserAuthDataDBManagerProtocol
     
-    init(rest: RestAPIAuth, dbManager: UserAuthDataRealmDBManagerProtocol) {
+    init(rest: RestAPIAuth, dbManager: UserAuthDataDBManagerProtocol) {
         self.dbManager = dbManager
         self.rest = rest
     }

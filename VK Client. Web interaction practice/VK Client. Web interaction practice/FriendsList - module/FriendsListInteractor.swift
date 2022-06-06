@@ -9,97 +9,19 @@ import Foundation
 import RealmSwift
 
 protocol FriendsListInteractorProtocol {
-    var apiWorker: ServiceVKAPIExtendedProtocol {get}
-    var realmDBWorker: ServiceDBRealmWritingReading {get}
-    var resultsFromDBRealm: [Friend]? {get}
-    var imageLoaderWorker: ImageLoaderProtocol {get}
-    
-    func getFriendsListFromServer() -> Void
-    func getFriendsListFromDB(cellIdentifier: String) -> Void
 }
 
 
 class FriendsListInteractor: FriendsListInteractorProtocol {
+    
     weak var presenter: FriendsListPresenterProtocol?
+    let manager: FriendsListManagerProtocol
+    let user: UserAuthData
     
-    var apiWorker: ServiceVKAPIExtendedProtocol = ServiceVKAPIExtended()
-    var realmDBWorker: ServiceDBRealmWritingReading = ServiceDBRealm()
-    var imageLoaderWorker: ImageLoaderProtocol = ImageLoader()
-    var resultsFromDBRealm: [Friend]?
-    
-    
-    func getFriendsListFromServer() -> Void {
-        apiWorker.getUserFriends{[weak self] friends in
-            guard let self = self else {return}
-            
-            self.apiWorker.apiQueue.async(flags: .barrier) {
-                self.realmDBWorker.writeToDB(elements: friends)
-            }
-        }
+    init(manager: FriendsListManagerProtocol, user: UserAuthData) {
+        self.manager = manager
+        self.user = user
     }
-    
-//    func getFriendsListFromDB(cellIdentifier: String) -> Void {
-//        self.realmDBWorker.readFromDB(cellIdentifierName: cellIdentifier){[weak self]
-//            resultsFromDB in
-//            guard let self = self else {return}
-//            guard let resultsFromDB = resultsFromDB as? Results<Friend> else {return}
-//
-//            let resultsFromDBThreadSafeRef = ThreadSafeReference(to: resultsFromDB)
-//
-//            self.resultsFromDBRealm = Array(resultsFromDB)
-//            self.presenter.returnFriendsList(friendsListFromDB: self.resultsFromDBRealm)
-//
-//            DispatchQueue.global().async {
-//                let realmConfig = Realm.Configuration(schemaVersion: Singleton.shared.realmSchemaNum)
-//                let realm = try! Realm(configuration: realmConfig)
-//                guard let friendsListExisting = realm.resolve(resultsFromDBThreadSafeRef) else {return}
-//
-//                var friendsAvatarLinksList = [String]()
-//                for friend in friendsListExisting{
-//                    let avatarlink = friend.avatar ?? "-"
-//                    friendsAvatarLinksList.append(avatarlink)
-//                }
-//                self.imageLoaderWorker.downloadImage(imageLinks: friendsAvatarLinksList){
-//                    listofImages in
-//                    DispatchQueue.main.async {
-//                        self.presenter.returnLoadedImage(listOfImages: listofImages)
-//                    }
-//                }
-//            }
-//        }
-//    }
-    
-    func getFriendsListFromDB(cellIdentifier: String) -> Void {
-        self.realmDBWorker.readFromDB(cellIdentifierName: cellIdentifier){[weak self]
-            (resultsFromDB: Any...) in
-            guard let self = self else {return}
-            guard let resultsFromDB = resultsFromDB[0] as? Results<Friend> else {return}
-            
-            let resultsFromDBThreadSafeRef = ThreadSafeReference(to: resultsFromDB)
-            
-            self.resultsFromDBRealm = Array(resultsFromDB)
-            self.presenter?.returnFriendsList(friendsListFromDB: self.resultsFromDBRealm)
-            
-            DispatchQueue.global().async {
-                let realmConfig = Realm.Configuration(schemaVersion: Singleton.shared.realmSchemaNum)
-                let realm = try! Realm(configuration: realmConfig)
-                guard let friendsListExisting = realm.resolve(resultsFromDBThreadSafeRef) else {return}
-                
-                var friendsAvatarLinksList = [String]()
-                for friend in friendsListExisting{
-                    let avatarlink = friend.avatar ?? "-"
-                    friendsAvatarLinksList.append(avatarlink)
-                }
-                self.imageLoaderWorker.downloadImage(imageLinks: friendsAvatarLinksList){
-                    listofImages in
-                    DispatchQueue.main.async {
-                        self.presenter?.returnLoadedImage(listOfImages: listofImages)
-                    }
-                }
-            }
-        }
-    }
-
 }
     
 

@@ -10,10 +10,10 @@ import Foundation
 
 class NewsFeedTapeModuleBuilder {
     
-    static func build() -> NewsFeedTapeViewController {
+    static func build(user: UserAuthData) -> NewsFeedTapeViewController {
         
         let router = NewsFeedTapeRouter()
-        let interactor = NewsFeedTapeInteractor()
+        let interactor = NewsFeedTapeInteractor(manager: NewsFeedManager(rest: RestAPI.instance, dbManager: RealmDBManagerService.instance), for: user)
         let presenter = NewsFeedTapePresenter(interactor: interactor, router: router)
         let vc = NewsFeedTapeViewController(presenter: presenter)
         

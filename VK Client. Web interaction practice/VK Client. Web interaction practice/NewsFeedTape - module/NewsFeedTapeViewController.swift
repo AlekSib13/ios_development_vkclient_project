@@ -13,7 +13,7 @@ protocol NewsFeedTapeViewControllerProtocol: AnyObject {
 }
 
 
-class NewsFeedTapeViewController: UIViewController, NewsFeedTapeViewControllerProtocol {
+class NewsFeedTapeViewController: BaseViewController, NewsFeedTapeViewControllerProtocol {
     
     let presenter: NewsFeedTapePresenterProtocol
     
@@ -29,6 +29,6 @@ class NewsFeedTapeViewController: UIViewController, NewsFeedTapeViewControllerPr
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .green.withAlphaComponent(0.3)
     }
+    
 }

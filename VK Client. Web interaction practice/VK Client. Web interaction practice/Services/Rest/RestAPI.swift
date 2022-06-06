@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Alamofire
 
 
 class RestAPI {
@@ -31,6 +32,10 @@ class RestAPI {
             let urlRequest = URLRequest(url: urlComponents.url!)
             return urlRequest
         }
+    }
+    
+    func makeGetRequest(url: String, method: HTTPMethod = .get, params: Parameters? = nil, for user: UserAuthData) {
+        let token = user.userToken
     }
 }
 
